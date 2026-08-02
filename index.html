@@ -1,0 +1,504 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="邱琪涵的产品经理作品集：商业化、用户增长、AI 产品与数据实验。"
+    />
+    <meta name="theme-color" content="#f4efe6" />
+    <title>邱琪涵 — 产品经理作品集</title>
+    <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='16' fill='%230a3180'/%3E%3Cpath d='M16 17v30h8V35h16v12h8V17h-8v11H24V17z' fill='white'/%3E%3C/svg%3E" />
+    <link rel="stylesheet" href="styles.css" />
+    <script src="script.js" defer></script>
+  </head>
+  <body>
+    <div class="intro-screen" aria-hidden="true">
+      <div class="intro-mark">Q<span>×</span>H</div>
+      <div class="intro-line"><i></i></div>
+      <p>PRODUCT PORTFOLIO · 2026</p>
+    </div>
+
+    <div class="cursor-dot" aria-hidden="true"></div>
+    <div class="cursor-ring" aria-hidden="true"></div>
+    <div class="scroll-progress" aria-hidden="true"><span></span></div>
+
+    <header class="site-header">
+      <a class="brand magnetic" href="#home" aria-label="返回首页">
+        <svg viewBox="0 0 44 44" aria-hidden="true">
+          <path d="M22 3 39 12.5v19L22 41 5 31.5v-19Z" />
+          <path d="m13 16 9 5 9-5M22 21v11" />
+        </svg>
+        <span>QIU QIHAN<small>PRODUCT PORTFOLIO</small></span>
+      </a>
+
+      <nav class="nav-pill" aria-label="主要导航">
+        <span class="nav-indicator" aria-hidden="true"></span>
+        <a class="active" href="#home" data-section="home">首页</a>
+        <a href="#about" data-section="about">关于</a>
+        <a href="#projects" data-section="projects">项目</a>
+        <a href="#contact" data-section="contact">联系</a>
+      </nav>
+
+      <div class="header-actions">
+        <a class="contact-pill magnetic" href="#contact">
+          <span>联系我</span>
+          <svg viewBox="0 0 24 24" aria-hidden="true">
+            <path d="M5 12h14M14 7l5 5-5 5" />
+          </svg>
+        </a>
+        <button class="sound-toggle magnetic" type="button" aria-label="开启页面声音" aria-pressed="false">
+          <span></span><span></span><span></span><span></span>
+        </button>
+      </div>
+    </header>
+
+    <main>
+      <section class="hero section-light" id="home" data-section-name="home">
+        <div class="hero-copy">
+          <div class="eyebrow reveal">
+            <span class="status-dot"></span>
+            AVAILABLE FOR A 6-MONTH INTERNSHIP
+          </div>
+
+          <h1 class="hero-title" aria-label="Qihan Product Manager">
+            <span class="title-line"><i>Q</i><i>I</i><i>H</i><i>A</i><i>N</i></span>
+            <span class="title-line title-outline"><i>P</i><i>R</i><i>O</i><i>D</i><i>U</i><i>C</i><i>T</i></span>
+          </h1>
+
+          <div class="hero-bottom reveal">
+            <div class="role-sticker">GROWTH · MONETIZATION · AI</div>
+            <p>
+              我是邱琪涵，一名数字经济背景的产品经理，擅长把复杂业务问题拆成
+              <strong>可落地、可验证、可增长</strong>的产品方案。
+            </p>
+            <a class="round-arrow magnetic" href="#projects" aria-label="查看项目">
+              <svg viewBox="0 0 32 32" aria-hidden="true">
+                <path d="M6 16h19M18 9l7 7-7 7" />
+              </svg>
+            </a>
+          </div>
+        </div>
+
+        <div class="hero-scene" aria-label="产品经理的三维工作空间插画">
+          <div class="scene-glow"></div>
+          <div class="orbit-label orbit-label-one" data-depth="0.7">01 / DISCOVER</div>
+          <div class="orbit-label orbit-label-two" data-depth="0.4">INSIGHT → GROWTH</div>
+
+          <svg class="studio-svg" viewBox="0 0 820 680" role="img" aria-labelledby="studio-title studio-desc">
+            <title id="studio-title">产品经理工作空间</title>
+            <desc id="studio-desc">人物坐在双屏电脑前分析数据和设计产品方案，周围有软木板、书架与植物。</desc>
+            <defs>
+              <linearGradient id="rug" x1="0" y1="0" x2="1" y2="1">
+                <stop offset="0" stop-color="#ffd959" />
+                <stop offset="1" stop-color="#ff8a00" />
+              </linearGradient>
+              <linearGradient id="desk" x1="0" y1="0" x2="0" y2="1">
+                <stop offset="0" stop-color="#fff" />
+                <stop offset="1" stop-color="#e8e4dc" />
+              </linearGradient>
+              <linearGradient id="screen" x1="0" y1="0" x2="1" y2="1">
+                <stop offset="0" stop-color="#1d2630" />
+                <stop offset="1" stop-color="#343948" />
+              </linearGradient>
+              <linearGradient id="shirt" x1="0" y1="0" x2="1" y2="1">
+                <stop offset="0" stop-color="#26292e" />
+                <stop offset="1" stop-color="#090a0d" />
+              </linearGradient>
+              <linearGradient id="leaf" x1="0" y1="1" x2="1" y2="0">
+                <stop offset="0" stop-color="#54bd16" />
+                <stop offset="1" stop-color="#b9ee00" />
+              </linearGradient>
+              <radialGradient id="skin" cx="35%" cy="25%">
+                <stop offset="0" stop-color="#ffd3b0" />
+                <stop offset="1" stop-color="#e69a6f" />
+              </radialGradient>
+              <radialGradient id="hair" cx="30%" cy="20%">
+                <stop offset="0" stop-color="#a76b44" />
+                <stop offset="1" stop-color="#5a3025" />
+              </radialGradient>
+              <filter id="soft-shadow" x="-40%" y="-40%" width="180%" height="180%">
+                <feDropShadow dx="0" dy="18" stdDeviation="16" flood-color="#7a5733" flood-opacity=".2" />
+              </filter>
+              <filter id="small-shadow" x="-50%" y="-50%" width="200%" height="200%">
+                <feDropShadow dx="0" dy="7" stdDeviation="6" flood-color="#3a2b1d" flood-opacity=".18" />
+              </filter>
+            </defs>
+
+            <g class="scene-layer" data-depth="0.08">
+              <ellipse cx="455" cy="620" rx="320" ry="37" fill="#d7b26d" opacity=".2" />
+              <path d="M95 547 356 403l397 136-268 135Z" fill="url(#rug)" filter="url(#soft-shadow)" />
+              <path d="m152 550 215-112 319 105-218 100Z" fill="none" stroke="#fff0a3" stroke-width="28" opacity=".72" />
+            </g>
+
+            <g class="scene-layer" data-depth="0.18" filter="url(#small-shadow)">
+              <rect x="360" y="71" width="272" height="160" rx="18" fill="#ead9ad" />
+              <rect x="371" y="81" width="250" height="139" rx="13" fill="#9c7c6a" />
+              <g transform="rotate(-5 440 128)">
+                <rect x="407" y="101" width="68" height="92" fill="#b9ddf2" />
+                <circle cx="436" cy="107" r="15" fill="#ee6474" />
+                <path d="M419 142h38M419 153h30M419 164h34" stroke="#88b2c9" stroke-width="4" opacity=".6" />
+              </g>
+              <g transform="rotate(8 558 170)">
+                <rect x="532" y="138" width="69" height="91" fill="#fffaf2" />
+                <circle cx="565" cy="145" r="15" fill="#e95467" />
+                <path d="M544 178h39M544 190h31" stroke="#d8d3ca" stroke-width="4" />
+              </g>
+            </g>
+
+            <g class="scene-layer" data-depth="0.26" filter="url(#small-shadow)">
+              <path d="M233 175h150v18H233z" fill="#d7b36a" />
+              <rect x="248" y="113" width="25" height="62" rx="3" fill="#cbd3dc" />
+              <rect x="273" y="108" width="31" height="67" rx="3" fill="#ffad1d" />
+              <rect x="304" y="121" width="19" height="54" rx="3" fill="#e58c13" />
+              <path d="M343 142c-7-26 14-35 16-13 10-19 24-7 11 10 19-4 23 15 2 18Z" fill="url(#leaf)" />
+              <ellipse cx="355" cy="169" rx="21" ry="9" fill="#d7d3cc" />
+              <path d="M335 147h40l-6 27c-2 9-26 9-28 0Z" fill="#fff" />
+            </g>
+
+            <g class="scene-layer" data-depth="0.22" filter="url(#soft-shadow)">
+              <path d="M205 389h467v115c0 17-14 31-31 31H235c-17 0-30-13-30-30Z" fill="url(#desk)" />
+              <rect x="204" y="377" width="469" height="70" rx="26" fill="#fff" />
+              <path d="M249 497v119M625 497v119" stroke="#b9905d" stroke-width="17" stroke-linecap="round" />
+              <path d="M263 504v98M609 504v98" stroke="#d8b47b" stroke-width="7" stroke-linecap="round" opacity=".9" />
+            </g>
+
+            <g class="scene-layer" data-depth="0.34" filter="url(#small-shadow)">
+              <g transform="rotate(4 377 340)">
+                <rect x="270" y="245" width="214" height="150" rx="18" fill="#514e65" />
+                <rect x="281" y="256" width="192" height="126" rx="10" fill="url(#screen)" />
+                <rect x="292" y="267" width="16" height="16" rx="5" fill="#4389be" />
+                <path d="M320 270h65M320 281h45M320 292h58M320 303h37M320 314h62M320 325h49M320 336h55" stroke="#7d8791" stroke-width="4" opacity=".7" />
+                <path d="M361 395v25M323 422h81" stroke="#363544" stroke-width="12" stroke-linecap="round" />
+              </g>
+              <g transform="rotate(5 548 355)">
+                <rect x="466" y="269" width="218" height="153" rx="18" fill="#514e65" />
+                <rect x="477" y="280" width="196" height="129" rx="10" fill="url(#screen)" />
+                <path d="M500 299h59M500 311h83M500 323h47" stroke="#ffd450" stroke-width="5" />
+                <path d="M500 340h74M500 352h51" stroke="#b476ed" stroke-width="5" />
+                <path d="M500 370h92M500 382h68" stroke="#74d97e" stroke-width="5" />
+                <path d="M568 423v24M530 449h82" stroke="#363544" stroke-width="12" stroke-linecap="round" />
+              </g>
+              <g transform="translate(225 342)">
+                <path d="M13 47V9l8-19 8 19v38" fill="#74bdd5" />
+                <path d="m21-10 8 19H13Z" fill="#eee1c7" />
+                <path d="M39 47V17l8-24 8 24v30" fill="#eb6273" />
+                <path d="m47-7 8 24H39Z" fill="#f0dcb8" />
+                <path d="M4 41h62v51H4z" fill="#d9c6ae" />
+              </g>
+            </g>
+
+            <g class="scene-layer" data-depth="0.42" filter="url(#small-shadow)">
+              <path d="M700 300c32-1 59 10 72 38l-11 4c-20-11-44-13-66-7Z" fill="#93b9de" />
+              <rect x="676" y="237" width="115" height="108" rx="18" fill="#85add1" transform="rotate(8 676 237)" />
+              <rect x="687" y="249" width="92" height="85" rx="11" fill="#c7e2f4" transform="rotate(8 687 249)" />
+              <circle cx="751" cy="276" r="14" fill="#fff" />
+              <path d="m689 320 34-35 23 29 16-14 21 32Z" fill="#fff" />
+            </g>
+
+            <g class="scene-layer person" data-depth="0.52" filter="url(#small-shadow)">
+              <path d="M412 439c-39 14-63 68-48 121l105 6c10-64-7-113-57-127Z" fill="url(#shirt)" />
+              <path d="M459 471c28 5 50 24 74 47 9 8 28-5 18-18-27-36-51-61-82-67Z" fill="url(#shirt)" />
+              <circle cx="551" cy="511" r="15" fill="url(#skin)" />
+              <path d="M397 416c3 45 28 66 64 51 31-13 42-49 22-82-16-26-85-10-86 31Z" fill="url(#skin)" />
+              <path d="M384 411c8-54 75-79 111-34 14 17 8 46-7 64-4-21-7-37-22-44-5 13-18 20-39 23-12 2-27-1-43-9Z" fill="url(#hair)" />
+              <path d="M406 388c21-23 53-31 79-9-10-30-57-40-84-9-10 12-15 29-12 45 4-11 9-20 17-27Z" fill="#74412d" />
+              <path d="M384 539c-20 29-12 75 19 97l22-25c-16-20-10-48 4-67Z" fill="#22252b" />
+              <path d="M414 624c15 11 26 21 38 35 7 8 43-6 38-22-3-11-32-26-54-33Z" fill="#fff" />
+              <path d="M437 619c14 4 31 13 43 25l9-8c-3-11-32-26-54-33Z" fill="#25272d" />
+            </g>
+
+            <g class="scene-layer" data-depth="0.46" filter="url(#small-shadow)">
+              <path d="M330 473c0-17 13-30 30-30h84c17 0 30 13 30 30v111H330Z" fill="#f6f4ef" />
+              <path d="M342 465h91c14 0 25 11 25 25v76H342Z" fill="#fff" />
+              <path d="m354 573 72 73M454 573l-73 73" stroke="#6f7379" stroke-width="12" stroke-linecap="round" />
+              <path d="M378 644h-42M404 644h48" stroke="#6f7379" stroke-width="12" stroke-linecap="round" />
+            </g>
+
+            <g class="scene-layer" data-depth="0.6" filter="url(#small-shadow)">
+              <path d="M679 515c12-68 8-98 18-118 25 34 13 76 0 103 15-65 44-89 64-99 0 42-25 81-54 106 35-45 70-53 91-50-18 39-53 61-91 65Z" fill="url(#leaf)" />
+              <path d="M673 511h95l-13 90c-4 27-61 27-66 0Z" fill="#f9f7f0" />
+              <path d="M679 529h83M685 570h71" stroke="#cbbdad" stroke-width="10" />
+              <ellipse cx="720" cy="514" rx="43" ry="12" fill="#59432e" />
+            </g>
+
+            <g class="scene-layer" data-depth="0.72">
+              <g class="speech-bubble" transform="translate(196 250)">
+                <path d="M0 16C0 7 7 0 16 0h37c9 0 16 7 16 16v16c0 9-7 16-16 16H26L14 60l2-12C7 48 0 41 0 32Z" fill="#20aef3" />
+                <circle cx="23" cy="24" r="4" fill="#fff" />
+                <circle cx="35" cy="24" r="4" fill="#fff" />
+                <circle cx="47" cy="24" r="4" fill="#fff" />
+              </g>
+            </g>
+          </svg>
+
+          <div class="scene-chip chip-code" data-depth="0.75">
+            <span>↗</span> FROM INSIGHT TO GROWTH
+          </div>
+          <div class="scene-chip chip-live" data-depth="0.55">
+            <i></i> GUANGZHOU / SHENZHEN
+          </div>
+        </div>
+
+        <a class="scroll-cue" href="#about" aria-label="向下滚动">
+          <span class="mouse"><i></i></span>
+          <span>SCROLL TO EXPLORE</span>
+        </a>
+      </section>
+
+      <section class="about section-dark" id="about" data-section-name="about">
+        <div class="section-kicker reveal"><span>01</span> ABOUT / 关于我</div>
+
+        <div class="about-grid">
+          <div class="about-console reveal">
+            <div class="console-topbar">
+              <div class="console-dots"><i></i><i></i><i></i></div>
+              <span>PROFILE_SYSTEM.EXE</span>
+              <span>ONLINE</span>
+            </div>
+            <div class="console-body">
+              <div class="avatar-orbit">
+                <div class="avatar-head">
+                  <span class="avatar-hair"></span>
+                  <span class="avatar-face"><i></i><i></i></span>
+                </div>
+                <span class="orbit orbit-a"></span>
+                <span class="orbit orbit-b"></span>
+                <span class="orbit orbit-c"></span>
+              </div>
+              <div class="console-data">
+                <p><span>NAME</span> QIU QIHAN / 邱琪涵</p>
+                <p><span>ROLE</span> PRODUCT MANAGER</p>
+                <p><span>BASE</span> GUANGZHOU / CHINA</p>
+                <p><span>FOCUS</span> GROWTH · MONETIZATION · AI</p>
+              </div>
+            </div>
+            <div class="console-grid-lines" aria-hidden="true"></div>
+          </div>
+
+          <div class="about-copy">
+            <p class="big-copy reveal">
+              我在用户、数据与业务之间工作，<br />
+              把复杂问题变成<strong>可验证的增长路径。</strong>
+            </p>
+            <p class="about-detail reveal">
+              我本科就读于广东工业大学数字经济学专业，以专业第 3/75 推免至暨南大学。
+              在快手、唯品会与欢聚时代的实践中，我持续参与商业化、用户增长和 AI 产品建设，
+              从用户洞察、策略设计到 PRD、协同上线和 A/B Test 验证完整推进项目。
+            </p>
+
+            <div class="capability-list reveal">
+              <div><span>01</span><strong>User Insight & Strategy</strong><small>用户洞察与策略设计</small></div>
+              <div><span>02</span><strong>Product Design & Delivery</strong><small>PRD、协同与产品落地</small></div>
+              <div><span>03</span><strong>Data & Growth Experiment</strong><small>数据分析与增长实验</small></div>
+            </div>
+          </div>
+        </div>
+
+        <div class="education-strip reveal" aria-label="教育经历与荣誉">
+          <article>
+            <span>2026.09 — 2028.07</span>
+            <h3>暨南大学</h3>
+            <p>产业经济研究院 · 数字经济学 · 硕士研究生</p>
+          </article>
+          <article>
+            <span>2022.09 — 2026.07</span>
+            <h3>广东工业大学</h3>
+            <p>经济学院 · 数字经济学 · 本科</p>
+          </article>
+          <article class="education-score">
+            <span>ACADEMIC HIGHLIGHTS</span>
+            <h3>4.37 / 5.0</h3>
+            <p>专业排名 3/75 · 前 4% · 推免暨南大学 · 近 10 项荣誉</p>
+          </article>
+        </div>
+
+        <div class="marquee" aria-hidden="true">
+          <div>
+            <span>USER INSIGHT</span><i>✦</i><span>PRODUCT STRATEGY</span><i>✦</i><span>GROWTH EXPERIMENT</span><i>✦</i><span>COMMERCIALIZATION</span><i>✦</i>
+            <span>USER INSIGHT</span><i>✦</i><span>PRODUCT STRATEGY</span><i>✦</i><span>GROWTH EXPERIMENT</span><i>✦</i><span>COMMERCIALIZATION</span><i>✦</i>
+          </div>
+        </div>
+      </section>
+
+      <section class="projects section-light" id="projects" data-section-name="projects">
+        <div class="projects-heading">
+          <div class="section-kicker reveal"><span>02</span> SELECTED CASES / 核心项目</div>
+          <h2 class="section-title reveal">Ideas tested<br /><em>by real data.</em></h2>
+          <p class="section-intro reveal">悬停展开卡片，左右拖动切换项目。以下内容依据公开简历进行摘要，敏感业务信息已脱敏。</p>
+        </div>
+
+        <div class="deck-layout reveal">
+          <div class="deck-copy" aria-live="polite">
+            <div class="deck-count"><span id="project-current">01</span><i></i><span>04</span></div>
+            <div class="deck-copy-track">
+              <article class="deck-description active" data-description="0">
+                <p class="project-type">KUAISHOU · CLOUD SPACE · 2026</p>
+                <h3>快影云空间升级</h3>
+                <p>围绕草稿上传与空间释放场景完成全链路体验升级和付费转化漏斗建设，推动上传率由 1.69% 提升至 12.37%，扩容点击率达到原来的 3.42 倍。</p>
+                <div class="project-tags"><span>User Research</span><span>PRD</span><span>A/B Test</span></div>
+              </article>
+              <article class="deck-description" data-description="1">
+                <p class="project-type">KWAICUT · GLOBAL GROWTH · 2026</p>
+                <h3>Kwai 生态导流</h3>
+                <p>以近 30 天生产行为定义高潜创作者，圈选 718 万用户并设计多区域、多语言下发策略；沉淀 200+ 通用文案 Key，前端文案重复率降低 14.9%。</p>
+                <div class="project-tags"><span>Growth Strategy</span><span>Localization</span><span>Cross-team</span></div>
+              </article>
+              <article class="deck-description" data-description="2">
+                <p class="project-type">KWAICUT · AI MONETIZATION · 2026</p>
+                <h3>AI Credits 体系</h3>
+                <p>调研 CapCut、InShot、VN、KlingAI 等产品，规划从 Paywall、AI Credits 消耗到 Apple IAP / Google Play Billing 的 MVP 商业化闭环。</p>
+                <div class="project-tags"><span>Competitive Research</span><span>Monetization</span><span>MVP</span></div>
+              </article>
+              <article class="deck-description" data-description="3">
+                <p class="project-type">VIPSHOP · USER GROWTH · 2025</p>
+                <h3>智能召回增长引擎</h3>
+                <p>构建用户—主题相关性模型并推动策略覆盖 1,400 万用户，实现 60% 回访率和季度 8 万增量客户；同时优化挂机短信策略，季度节省渠道成本 82 万元。</p>
+                <div class="project-tags"><span>Data Model</span><span>Experiment</span><span>ROI</span></div>
+              </article>
+            </div>
+
+            <div class="deck-controls">
+              <button type="button" class="deck-button deck-prev magnetic" aria-label="上一个项目">
+                <svg viewBox="0 0 24 24"><path d="m15 5-7 7 7 7" /></svg>
+              </button>
+              <button type="button" class="deck-button deck-next magnetic" aria-label="下一个项目">
+                <svg viewBox="0 0 24 24"><path d="m9 5 7 7-7 7" /></svg>
+              </button>
+              <span class="drag-tip">DRAG THE CARDS ↔</span>
+            </div>
+          </div>
+
+          <div class="project-deck" tabindex="0" aria-label="项目卡片，可使用左右方向键切换">
+            <article class="project-card card-orange" data-project="0">
+              <div class="project-art orbit-art">
+                <span class="art-label">KUAIYING / CLOUD</span>
+                <span class="orbit-sphere sphere-one"></span>
+                <span class="orbit-sphere sphere-two"></span>
+                <span class="orbit-sphere sphere-three"></span>
+                <span class="orbit-ring ring-one"></span>
+                <span class="orbit-ring ring-two"></span>
+                <div class="art-window">
+                  <small>UPLOAD RATE</small>
+                  <strong>12.37%</strong>
+                  <span><i></i></span>
+                </div>
+              </div>
+              <footer><span>01</span><strong>快影云空间</strong><small>7.32× GROWTH ↗</small></footer>
+            </article>
+
+            <article class="project-card card-ivory" data-project="1">
+              <div class="project-art object-art">
+                <span class="art-label dark">KWAI ↔ KWAICUT</span>
+                <span class="object arch"></span>
+                <span class="object ball"></span>
+                <span class="object plinth"></span>
+                <span class="object chrome"></span>
+                <div class="vertical-word">7.18M</div>
+              </div>
+              <footer><span>02</span><strong>GLOBAL PLC</strong><small>10 LANGUAGES ↗</small></footer>
+            </article>
+
+            <article class="project-card card-blue" data-project="2">
+              <div class="project-art city-art">
+                <span class="art-label">GLOBAL IAP / AI</span>
+                <div class="city-grid"></div>
+                <span class="map-line line-a"></span>
+                <span class="map-line line-b"></span>
+                <span class="map-dot dot-a"></span>
+                <span class="map-dot dot-b"></span>
+                <span class="map-dot dot-c"></span>
+                <div class="city-title">AI<br />CREDITS</div>
+                <div class="city-data">PAYWALL<br />IAP · GPB</div>
+              </div>
+              <footer><span>03</span><strong>AI CREDITS</strong><small>MVP LOOP ↗</small></footer>
+            </article>
+
+            <article class="project-card card-pink" data-project="3">
+              <div class="project-art motion-art">
+                <span class="art-label dark">VIPSHOP / USER GROWTH</span>
+                <span class="blob blob-a"></span>
+                <span class="blob blob-b"></span>
+                <span class="blob blob-c"></span>
+                <div class="motion-word">60%</div>
+                <div class="motion-stamp">14M<br />USERS<br />+80K</div>
+              </div>
+              <footer><span>04</span><strong>VIPSHOP CRM</strong><small>¥820K SAVED ↗</small></footer>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section class="principles experience" aria-label="实习经历">
+        <div class="experience-heading reveal">
+          <div class="section-kicker"><span>03</span> EXPERIENCE / 实习经历</div>
+          <h2>Three teams.<br /><em>One product mindset.</em></h2>
+        </div>
+        <div class="principle-card reveal">
+          <span>2026.03 — 2026.08</span>
+          <div class="principle-icon"><i></i><i></i><i></i></div>
+          <h3>快手</h3>
+          <small>商业化产品经理 · 快影</small>
+          <p>负责国内外商业化与用户增长产品建设，覆盖云空间付费转化、Kwai 生态导流与 AI IAP 变现规划。</p>
+        </div>
+        <div class="principle-card reveal">
+          <span>2025.09 — 2026.03</span>
+          <div class="principle-icon icon-loop"><i></i><i></i></div>
+          <h3>唯品会</h3>
+          <small>用户产品实习生 · 外呼策略</small>
+          <p>围绕流失老客召回建设用户增长引擎，负责个性化主题匹配、A/B 实验及挂机短信 ROI 策略。</p>
+        </div>
+        <div class="principle-card reveal">
+          <span>2024.04 — 2024.08</span>
+          <div class="principle-icon icon-code"><b>&lt;/&gt;</b></div>
+          <h3>欢聚时代</h3>
+          <small>渠道运营实习生</small>
+          <p>基于 SQL 看板跟踪 CPA、ROI、ARPPU 与转化漏斗，结合内容节点与用户退出行为输出投放调优方案。</p>
+        </div>
+      </section>
+
+      <section class="contact section-light" id="contact" data-section-name="contact">
+        <div class="contact-copy">
+          <div class="section-kicker reveal"><span>04</span> CONTACT / 联系我</div>
+          <h2 class="contact-title reveal">Let’s turn<br /><em>insight into growth.</em></h2>
+          <p class="reveal">求职方向：产品经理。可立刻到岗并连续实习 6 个月，期待商业化、用户增长与 AI 产品机会。</p>
+          <div class="contact-actions reveal">
+            <a class="email-button magnetic" href="mailto:rickyyyi@163.com">
+              <span>RICKYYYI@163.COM</span>
+              <svg viewBox="0 0 24 24"><path d="M5 12h14M14 7l5 5-5 5" /></svg>
+            </a>
+            <button class="copy-email magnetic" type="button" data-email="rickyyyi@163.com">复制邮箱</button>
+          </div>
+        </div>
+
+        <div class="contact-scene reveal" aria-hidden="true">
+          <div class="package package-one"><span>INSIGHT</span></div>
+          <div class="package package-two"><span>LET’S<br />GROW</span></div>
+          <div class="package package-three"><span>PRODUCT<br />VALUE</span></div>
+          <div class="paper-plane"><i></i></div>
+          <div class="contact-avatar">
+            <div class="contact-head"><span></span></div>
+            <div class="contact-body"></div>
+            <div class="contact-arm left"></div>
+            <div class="contact-arm right"></div>
+            <div class="contact-leg left"></div>
+            <div class="contact-leg right"></div>
+          </div>
+          <div class="contact-shadow"></div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <a class="footer-brand" href="#home">Q×H</a>
+      <p>PRODUCT MANAGER · GUANGZHOU</p>
+      <div class="footer-links">
+        <a href="mailto:rickyyyi@163.com">邮箱</a><a href="tel:13414331629">电话</a><a href="#projects">项目</a>
+      </div>
+      <p>© <span id="year">2026</span> ALL RIGHTS RESERVED</p>
+    </footer>
+
+    <div class="toast" role="status" aria-live="polite">邮箱已复制</div>
+  </body>
+</html>
