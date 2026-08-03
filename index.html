@@ -333,6 +333,93 @@ body.cursor-hover .cursor-ring {
   font-size: 24px;
 }
 
+.shape-overlays {
+  --wave-one-start: #ffb027;
+  --wave-one-end: #ff8200;
+  --wave-two-start: #ffb4cb;
+  --wave-two-end: #f36d9b;
+  --wave-three-start: #1760c4;
+  --wave-three-end: #0a3180;
+  position: fixed;
+  z-index: 11000;
+  inset: 0;
+  visibility: hidden;
+  pointer-events: none;
+}
+
+.shape-overlays.is-active {
+  visibility: visible;
+  pointer-events: auto;
+}
+
+.shape-overlays > svg {
+  width: 100%;
+  height: 100%;
+  display: block;
+}
+
+.shape-overlays__path { vector-effect: non-scaling-stroke; }
+
+.page-transition-copy {
+  position: absolute;
+  inset: 0;
+  display: grid;
+  grid-template-columns: 1fr auto;
+  grid-template-rows: auto 1fr auto;
+  gap: 28px;
+  padding: clamp(28px, 6vw, 92px);
+  color: #fff;
+  visibility: hidden;
+  opacity: 0;
+  pointer-events: none;
+}
+
+.transition-brand {
+  font-size: clamp(27px, 3.2vw, 48px);
+  font-weight: 800;
+  line-height: 1;
+  letter-spacing: -0.09em;
+}
+
+.transition-section {
+  grid-column: 1 / -1;
+  align-self: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+.transition-section small,
+.transition-flow {
+  font: 500 clamp(8px, 0.75vw, 11px)/1.4 var(--mono);
+  letter-spacing: 0.13em;
+}
+
+.transition-section small {
+  margin-bottom: 18px;
+  color: rgba(255,255,255,.68);
+}
+
+.transition-section strong {
+  max-width: 12ch;
+  font-size: clamp(58px, 10vw, 170px);
+  font-weight: 800;
+  line-height: 0.82;
+  letter-spacing: -0.085em;
+  text-wrap: balance;
+}
+
+.transition-flow {
+  grid-column: 2;
+  align-self: end;
+  color: rgba(255,255,255,.74);
+  white-space: nowrap;
+}
+
+html.is-page-transitioning { scroll-behavior: auto; }
+body.is-page-transitioning { overflow: hidden; }
+
 .scroll-progress {
   position: fixed;
   top: 0;
@@ -1839,6 +1926,9 @@ body.cursor-hover .cursor-ring {
   .contact-scene { width:120vw; margin-left:-10vw; transform:scale(.82); transform-origin:center top; margin-bottom:-90px; }
   .site-footer { grid-template-columns:1fr; gap:16px; padding-inline:24px; }
   .footer-links { flex-wrap:wrap; }
+  .page-transition-copy { grid-template-columns:1fr; grid-template-rows:auto 1fr auto; padding:28px 20px 34px; }
+  .transition-section strong { max-width:9ch; font-size:clamp(50px,18vw,82px); }
+  .transition-flow { grid-column:1; justify-self:start; white-space:normal; }
 }
 
 @media (hover: none) {
@@ -1853,6 +1943,7 @@ body.cursor-hover .cursor-ring {
   .reveal { opacity:1; transform:none; }
   .intro-screen { display:none; }
   .cursor-trail-layer { display:none; }
+  .shape-overlays { display:none; }
 }
     </style>
   </head>
@@ -1867,6 +1958,35 @@ body.cursor-hover .cursor-ring {
     <div class="cursor-ring" aria-hidden="true"></div>
     <div class="cursor-trail-layer" data-cursor-trail aria-hidden="true"></div>
     <div class="scroll-progress" aria-hidden="true"><span></span></div>
+    <div class="shape-overlays" data-page-transition aria-hidden="true">
+      <svg viewBox="0 0 100 100" preserveAspectRatio="none">
+        <defs>
+          <linearGradient id="transition-wave-one" x1="0" y1="0" x2="1" y2="1">
+            <stop offset="0" style="stop-color:var(--wave-one-start)" />
+            <stop offset="1" style="stop-color:var(--wave-one-end)" />
+          </linearGradient>
+          <linearGradient id="transition-wave-two" x1="0" y1="0" x2="1" y2="1">
+            <stop offset="0" style="stop-color:var(--wave-two-start)" />
+            <stop offset="1" style="stop-color:var(--wave-two-end)" />
+          </linearGradient>
+          <linearGradient id="transition-wave-three" x1="0" y1="0" x2="1" y2="1">
+            <stop offset="0" style="stop-color:var(--wave-three-start)" />
+            <stop offset="1" style="stop-color:var(--wave-three-end)" />
+          </linearGradient>
+        </defs>
+        <path class="shape-overlays__path" data-wave-path fill="url(#transition-wave-one)"></path>
+        <path class="shape-overlays__path" data-wave-path fill="url(#transition-wave-two)"></path>
+        <path class="shape-overlays__path" data-wave-path fill="url(#transition-wave-three)"></path>
+      </svg>
+      <div class="page-transition-copy" data-transition-copy>
+        <span class="transition-brand">Q×H</span>
+        <div class="transition-section">
+          <small data-transition-index>00 / HOME</small>
+          <strong data-transition-title>QIHAN PRODUCT</strong>
+        </div>
+        <span class="transition-flow">INSIGHT → STRATEGY → GROWTH</span>
+      </div>
+    </div>
 
     <header class="site-header">
       <a class="brand magnetic" href="#home" aria-label="返回首页">
@@ -2484,6 +2604,188 @@ if (window.matchMedia('(pointer: fine)').matches && !reducedMotion) {
 
 // Portfolio-native image trail, sequenced with the official GSAP timeline pattern.
 const gsapEngine = window.gsap;
+
+// Fluid section changes inspired by the official multi-path GSAP overlay timeline.
+if (gsapEngine && !reducedMotion) {
+  const transitionOverlay = qs('[data-page-transition]');
+
+  if (transitionOverlay) {
+    const transitionPaths = qsa('[data-wave-path]', transitionOverlay);
+    const transitionCopy = qs('[data-transition-copy]', transitionOverlay);
+    const transitionIndex = qs('[data-transition-index]', transitionOverlay);
+    const transitionTitle = qs('[data-transition-title]', transitionOverlay);
+    const transitionLinks = qsa('a[href^="#"]');
+    const numTransitionPoints = 10;
+    const delayPointsMax = 0.18;
+    const delayPerPath = 0.12;
+    const transitionDuration = 0.72;
+    const allTransitionPoints = transitionPaths.map(() => Array(numTransitionPoints).fill(0));
+    let pageTransitionTimeline = null;
+    let pageTransitionActive = false;
+
+    const transitionThemes = {
+      home: {
+        index: '00 / HOME',
+        title: 'QIHAN PRODUCT',
+        colors: {
+          '--wave-one-start': '#ffb027', '--wave-one-end': '#ff8200',
+          '--wave-two-start': '#ffb4cb', '--wave-two-end': '#f36d9b',
+          '--wave-three-start': '#1760c4', '--wave-three-end': '#0a3180',
+        },
+      },
+      about: {
+        index: '01 / ABOUT',
+        title: 'ABOUT ME',
+        colors: {
+          '--wave-one-start': '#77e6ff', '--wave-one-end': '#1dd7ff',
+          '--wave-two-start': '#1760c4', '--wave-two-end': '#0a3180',
+          '--wave-three-start': '#35352f', '--wave-three-end': '#171816',
+        },
+      },
+      projects: {
+        index: '02 / SELECTED CASES',
+        title: 'IDEAS TESTED',
+        colors: {
+          '--wave-one-start': '#ffd067', '--wave-one-end': '#ff8200',
+          '--wave-two-start': '#ffc1d3', '--wave-two-end': '#f36d9b',
+          '--wave-three-start': '#1760c4', '--wave-three-end': '#0a3180',
+        },
+      },
+      contact: {
+        index: '04 / CONTACT',
+        title: "LET'S TALK",
+        colors: {
+          '--wave-one-start': '#ffcd62', '--wave-one-end': '#ff8200',
+          '--wave-two-start': '#74edff', '--wave-two-end': '#1dd7ff',
+          '--wave-three-start': '#1760c4', '--wave-three-end': '#0a3180',
+        },
+      },
+    };
+
+    function renderTransitionPaths() {
+      transitionPaths.forEach((path, pathIndex) => {
+        const points = allTransitionPoints[pathIndex];
+        const segmentWidth = 100 / (numTransitionPoints - 1);
+        let pathData = `M 0 ${points[0]} C`;
+
+        for (let pointIndex = 0; pointIndex < numTransitionPoints - 1; pointIndex += 1) {
+          const x = (pointIndex + 1) * segmentWidth;
+          const controlX = x - segmentWidth / 2;
+          pathData += ` ${controlX} ${points[pointIndex]} ${controlX} ${points[pointIndex + 1]} ${x} ${points[pointIndex + 1]}`;
+        }
+
+        pathData += ' V 0 H 0 Z';
+        path.setAttribute('d', pathData);
+      });
+    }
+
+    function setTransitionPoints(value) {
+      allTransitionPoints.forEach((points) => points.fill(value));
+      renderTransitionPaths();
+    }
+
+    function createWaveTimeline(isCovering) {
+      const pointDelays = Array.from(
+        { length: numTransitionPoints },
+        () => Math.random() * delayPointsMax
+      );
+      const waveTimeline = gsapEngine.timeline({
+        defaults: { duration: transitionDuration, ease: 'power2.inOut' },
+        onUpdate: renderTransitionPaths,
+      });
+
+      transitionPaths.forEach((path, pathIndex) => {
+        const points = allTransitionPoints[pathIndex];
+        const pathDelay = delayPerPath * (isCovering ? pathIndex : transitionPaths.length - pathIndex - 1);
+
+        for (let pointIndex = 0; pointIndex < numTransitionPoints; pointIndex += 1) {
+          waveTimeline.to(
+            points,
+            { [pointIndex]: isCovering ? 100 : 0 },
+            pointDelays[pointIndex] + pathDelay
+          );
+        }
+      });
+
+      return waveTimeline;
+    }
+
+    function finishPageTransition() {
+      pageTransitionActive = false;
+      transitionOverlay.classList.remove('is-active');
+      document.documentElement.classList.remove('is-page-transitioning');
+      document.body.classList.remove('is-page-transitioning');
+      gsapEngine.set(transitionCopy, { autoAlpha: 0, y: 0 });
+      setTransitionPoints(0);
+    }
+
+    function changePageSection(target, hash) {
+      const sectionName = target.dataset.sectionName || target.id || 'home';
+      const theme = transitionThemes[sectionName] || transitionThemes.home;
+
+      pageTransitionTimeline?.kill();
+      pageTransitionActive = true;
+      transitionIndex.textContent = theme.index;
+      transitionTitle.textContent = theme.title;
+      transitionOverlay.classList.add('is-active');
+      document.documentElement.classList.add('is-page-transitioning');
+      document.body.classList.add('is-page-transitioning');
+      setTransitionPoints(0);
+      gsapEngine.set(transitionCopy, { autoAlpha: 0, y: 28 });
+
+      const coverTimeline = createWaveTimeline(true);
+      const revealTimeline = createWaveTimeline(false);
+      pageTransitionTimeline = gsapEngine.timeline({
+        defaults: { ease: 'power2.inOut' },
+        onComplete: finishPageTransition,
+      });
+
+      pageTransitionTimeline
+        .to(transitionOverlay, { ...theme.colors, duration: 0.45 }, 0)
+        .add(coverTimeline, 0)
+        .to(transitionCopy, { autoAlpha: 1, y: 0, duration: 0.48, ease: 'back.out(1.5)' }, 0.48)
+        .addLabel('covered')
+        .call(() => {
+          if (window.location.hash !== hash) history.pushState(null, '', hash);
+          window.scrollTo(0, target.offsetTop);
+          updateHeader();
+        }, [], 'covered')
+        .to(transitionCopy, { autoAlpha: 0, y: -22, duration: 0.3, ease: 'power2.in' }, 'covered+=0.08')
+        .add(revealTimeline, 'covered+=0.12');
+    }
+
+    transitionLinks.forEach((link) => {
+      link.addEventListener('click', (event) => {
+        const hash = link.getAttribute('href');
+        if (
+          !hash ||
+          hash === '#' ||
+          event.button !== 0 ||
+          event.metaKey ||
+          event.ctrlKey ||
+          event.shiftKey ||
+          event.altKey
+        ) return;
+
+        const target = qs(hash);
+        if (!target) return;
+        event.preventDefault();
+        if (pageTransitionActive) return;
+        changePageSection(target, hash);
+      });
+    });
+
+    window.addEventListener('popstate', () => {
+      const target = qs(window.location.hash || '#home');
+      if (!target) return;
+      window.scrollTo(0, target.offsetTop);
+      updateHeader();
+    });
+
+    setTransitionPoints(0);
+  }
+}
+
 if (gsapEngine) {
   const trailMedia = gsapEngine.matchMedia();
 
@@ -2592,7 +2894,12 @@ if (gsapEngine) {
 
     function renderTrail() {
       const introScreen = qs('.intro-screen');
-      if (!pointerActive || document.hidden || (introScreen && !introScreen.classList.contains('loaded'))) return;
+      if (
+        !pointerActive ||
+        document.hidden ||
+        document.body.classList.contains('is-page-transitioning') ||
+        (introScreen && !introScreen.classList.contains('loaded'))
+      ) return;
 
       smoothed.x = gsapEngine.utils.interpolate(smoothed.x, pointer.x, 0.34);
       smoothed.y = gsapEngine.utils.interpolate(smoothed.y, pointer.y, 0.34);
