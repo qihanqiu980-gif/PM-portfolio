@@ -1,0 +1,835 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="邱琪涵的产品经理实习项目详情。" />
+    <meta name="theme-color" content="#f4efe6" />
+    <title>快影云空间升级 | 邱琪涵产品作品集</title>
+    <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='16' fill='%230a3180'/%3E%3Cpath d='M16 17v30h8V35h16v12h8V17h-8v11H24V17z' fill='white'/%3E%3C/svg%3E" />
+    <style>
+:root {
+  --paper: #f4efe6;
+  --paper-2: #ece3d5;
+  --surface: #fbf8f2;
+  --ink: #24211d;
+  --muted: #736d63;
+  --orange: #ff8200;
+  --blue: #0a3180;
+  --line: rgba(36, 33, 29, 0.14);
+  --ease: cubic-bezier(0.22, 1, 0.36, 1);
+  --mono: 'SFMono-Regular', 'Roboto Mono', Menlo, Consolas, monospace;
+  --sans: 'Avenir Next', 'Helvetica Neue', 'PingFang SC', 'Microsoft YaHei', system-ui, sans-serif;
+  --case-start: #ff8200;
+  --case-end: #ea4d00;
+  --case-light: #ffd268;
+  --case-ink: #ffffff;
+}
+
+* { box-sizing: border-box; }
+
+html {
+  scroll-behavior: smooth;
+  background: var(--paper);
+}
+
+body {
+  margin: 0;
+  color: var(--ink);
+  background: var(--paper);
+  font-family: var(--sans);
+  line-height: 1.6;
+  overflow-x: hidden;
+}
+
+body::before {
+  position: fixed;
+  inset: 0;
+  z-index: 100;
+  pointer-events: none;
+  opacity: 0.18;
+  content: '';
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 180 180' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.95' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='.14'/%3E%3C/svg%3E");
+  mix-blend-mode: multiply;
+}
+
+::selection { color: #fff; background: var(--orange); }
+a { color: inherit; text-decoration: none; }
+button, a { -webkit-tap-highlight-color: transparent; }
+
+.case-header {
+  position: sticky;
+  top: 0;
+  z-index: 20;
+  display: grid;
+  grid-template-columns: auto 1fr auto;
+  align-items: center;
+  gap: 32px;
+  min-height: 78px;
+  padding: 14px clamp(20px, 4.5vw, 72px);
+  border-bottom: 1px solid var(--line);
+  background: rgba(244, 239, 230, 0.88);
+  backdrop-filter: blur(20px);
+}
+
+.back-link,
+.contact-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  white-space: nowrap;
+  font: 500 10px/1 var(--mono);
+  letter-spacing: 0.06em;
+}
+
+.back-link i,
+.contact-link i {
+  display: grid;
+  place-items: center;
+  width: 38px;
+  height: 38px;
+  border: 1px solid var(--line);
+  border-radius: 50%;
+  font-style: normal;
+  transition: color 0.3s, background 0.3s, transform 0.45s var(--ease);
+}
+
+.back-link:hover i { color: #fff; background: var(--blue); transform: translateX(-3px); }
+.contact-link:hover i { color: #fff; background: var(--orange); transform: translate(3px, -3px); }
+
+.case-nav {
+  display: flex;
+  justify-content: center;
+  gap: 6px;
+  min-width: 0;
+}
+
+.case-nav a {
+  padding: 10px 14px;
+  border-radius: 999px;
+  color: var(--muted);
+  font: 500 9px/1 var(--mono);
+  white-space: nowrap;
+  transition: color 0.3s, background 0.3s;
+}
+
+.case-nav a:hover,
+.case-nav a.active {
+  color: #fff;
+  background: var(--ink);
+}
+
+.back-link:focus-visible,
+.contact-link:focus-visible,
+.case-nav a:focus-visible,
+.case-switch a:focus-visible,
+.case-footer-brand:focus-visible {
+  outline: 3px solid var(--orange);
+  outline-offset: 4px;
+}
+
+.case-main { min-height: 100dvh; }
+
+.case-hero {
+  display: grid;
+  grid-template-columns: minmax(0, 0.86fr) minmax(480px, 1.14fr);
+  align-items: center;
+  gap: clamp(48px, 7vw, 120px);
+  min-height: calc(100dvh - 78px);
+  padding: clamp(70px, 8vw, 128px) clamp(24px, 7vw, 128px);
+}
+
+.case-kicker {
+  margin-bottom: 25px;
+  color: var(--orange);
+  font: 500 10px/1.4 var(--mono);
+  letter-spacing: 0.1em;
+}
+
+.case-title {
+  max-width: 11ch;
+  margin: 0;
+  font-size: clamp(64px, 7.5vw, 126px);
+  font-weight: 800;
+  line-height: 0.85;
+  letter-spacing: -0.08em;
+}
+
+.case-lead {
+  max-width: 580px;
+  margin: 35px 0 0;
+  color: var(--muted);
+  font-size: 16px;
+  line-height: 1.9;
+}
+
+.case-role {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: 30px;
+}
+
+.case-role span {
+  padding: 8px 11px;
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  font: 500 9px/1 var(--mono);
+}
+
+.case-visual {
+  position: relative;
+  min-height: min(70vw, 700px);
+  max-height: 730px;
+  color: var(--case-ink);
+  border: 1px solid rgba(36, 33, 29, 0.14);
+  border-radius: 30px;
+  overflow: hidden;
+  isolation: isolate;
+  background:
+    radial-gradient(circle at 30% 20%, var(--case-light), transparent 24%),
+    linear-gradient(145deg, var(--case-start), var(--case-end));
+  box-shadow: 0 42px 100px rgba(58, 38, 18, 0.2);
+}
+
+.visual-grid {
+  position: absolute;
+  inset: 0;
+  opacity: 0.42;
+  background-image:
+    linear-gradient(rgba(255,255,255,.14) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255,255,255,.14) 1px, transparent 1px);
+  background-size: 42px 42px;
+  mask-image: linear-gradient(to bottom, #000, transparent 88%);
+}
+
+.visual-sphere {
+  position: absolute;
+  border-radius: 50%;
+  background:
+    radial-gradient(circle at 27% 23%, rgba(255,255,255,.9), var(--case-light) 23%, var(--case-start) 66%, var(--case-end));
+  box-shadow: inset -24px -28px 38px rgba(25, 12, 0, 0.22), 0 30px 55px rgba(25, 12, 0, 0.22);
+}
+
+.visual-sphere-main { top: 21%; right: 11%; width: 47%; aspect-ratio: 1; }
+.visual-sphere-small { top: 16%; left: 19%; width: 13%; aspect-ratio: 1; }
+.visual-sphere-mini { right: 46%; bottom: 16%; width: 8%; aspect-ratio: 1; }
+
+.visual-ring {
+  position: absolute;
+  border: 2px solid color-mix(in srgb, var(--case-ink) 72%, transparent);
+  border-radius: 50%;
+}
+
+.visual-ring-a { top: 12%; right: 4%; width: 63%; height: 42%; transform: rotate(-16deg); }
+.visual-ring-b { top: 33%; right: 17%; width: 42%; height: 54%; transform: rotate(62deg); }
+
+.visual-word {
+  position: absolute;
+  top: 7%;
+  left: 7%;
+  max-width: 5ch;
+  font-size: clamp(56px, 8vw, 118px);
+  font-weight: 800;
+  line-height: 0.74;
+  letter-spacing: -0.08em;
+  opacity: 0.14;
+}
+
+.visual-metric {
+  position: absolute;
+  bottom: 7%;
+  left: 7%;
+  z-index: 3;
+  min-width: min(46%, 280px);
+  padding: 22px;
+  border: 1px solid color-mix(in srgb, var(--case-ink) 34%, transparent);
+  border-radius: 16px;
+  background: color-mix(in srgb, var(--case-end) 48%, transparent);
+  backdrop-filter: blur(16px);
+}
+
+.visual-metric small {
+  display: block;
+  margin-bottom: 13px;
+  font: 500 9px/1 var(--mono);
+  letter-spacing: 0.1em;
+  opacity: 0.72;
+}
+
+.visual-metric strong {
+  display: block;
+  font-size: clamp(34px, 5vw, 70px);
+  line-height: 0.9;
+  letter-spacing: -0.06em;
+}
+
+.case-overview {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  border-top: 1px solid var(--line);
+  border-bottom: 1px solid var(--line);
+  background: var(--surface);
+}
+
+.overview-block {
+  min-height: 330px;
+  padding: clamp(38px, 5vw, 78px);
+  border-right: 1px solid var(--line);
+}
+
+.overview-block:last-child { border-right: 0; }
+
+.overview-block small,
+.process-copy small,
+.metrics-heading small {
+  color: var(--orange);
+  font: 500 9px/1 var(--mono);
+  letter-spacing: 0.1em;
+}
+
+.overview-block h2 {
+  margin: 32px 0 18px;
+  font-size: clamp(30px, 3vw, 48px);
+  line-height: 0.95;
+  letter-spacing: -0.05em;
+}
+
+.overview-block p {
+  max-width: 40ch;
+  margin: 0;
+  color: var(--muted);
+  font-size: 14px;
+  line-height: 1.85;
+}
+
+.case-process {
+  display: grid;
+  grid-template-columns: minmax(300px, 0.65fr) minmax(0, 1.35fr);
+  gap: clamp(50px, 9vw, 160px);
+  padding: clamp(90px, 10vw, 160px) clamp(24px, 7vw, 128px);
+}
+
+.process-copy h2,
+.metrics-heading h2 {
+  max-width: 9ch;
+  margin: 26px 0 0;
+  font-size: clamp(52px, 6.5vw, 104px);
+  line-height: 0.86;
+  letter-spacing: -0.075em;
+}
+
+.process-list {
+  display: grid;
+  align-content: center;
+  gap: 14px;
+}
+
+.process-item {
+  display: grid;
+  grid-template-columns: 46px 1fr;
+  gap: 18px;
+  padding: 26px 0;
+  border-bottom: 1px solid var(--line);
+}
+
+.process-item:first-child { border-top: 1px solid var(--line); }
+
+.process-item span {
+  color: var(--orange);
+  font: 500 11px/1.6 var(--mono);
+}
+
+.process-item p {
+  max-width: 62ch;
+  margin: 0;
+  font-size: clamp(17px, 1.7vw, 24px);
+  line-height: 1.55;
+}
+
+.case-metrics {
+  padding: clamp(80px, 9vw, 140px) clamp(24px, 7vw, 128px);
+  background: var(--blue);
+  color: #f8f5ee;
+}
+
+.metrics-heading {
+  display: flex;
+  align-items: end;
+  justify-content: space-between;
+  gap: 40px;
+  max-width: 1420px;
+  margin: 0 auto 70px;
+}
+
+.metrics-heading small { color: #72e8ff; }
+.metrics-heading h2 { max-width: 10ch; }
+
+.metrics-heading p {
+  max-width: 420px;
+  margin: 0 0 5px;
+  color: rgba(248,245,238,.68);
+  font-size: 14px;
+  line-height: 1.8;
+}
+
+.metric-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  max-width: 1420px;
+  margin: 0 auto;
+  border-top: 1px solid rgba(255,255,255,.18);
+  border-bottom: 1px solid rgba(255,255,255,.18);
+}
+
+.metric-card {
+  min-height: 250px;
+  padding: 38px 30px;
+  border-right: 1px solid rgba(255,255,255,.18);
+}
+
+.metric-card:last-child { border-right: 0; }
+
+.metric-card strong {
+  display: block;
+  margin-bottom: 26px;
+  color: #fff;
+  font-size: clamp(42px, 5vw, 80px);
+  line-height: 0.9;
+  letter-spacing: -0.07em;
+}
+
+.metric-card span {
+  display: block;
+  max-width: 18ch;
+  color: rgba(248,245,238,.72);
+  font-size: 13px;
+  line-height: 1.65;
+}
+
+.case-footer {
+  display: grid;
+  grid-template-columns: 1fr auto 1fr;
+  align-items: center;
+  gap: 30px;
+  padding: 55px clamp(24px, 7vw, 128px);
+  background: var(--surface);
+}
+
+.case-footer > p {
+  max-width: 50ch;
+  margin: 0;
+  color: var(--muted);
+  font-size: 12px;
+  line-height: 1.7;
+}
+
+.case-switch {
+  display: flex;
+  gap: 9px;
+}
+
+.case-switch a {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  padding: 13px 18px;
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  font: 500 10px/1 var(--mono);
+  white-space: nowrap;
+  transition: color 0.3s, background 0.3s, transform 0.4s var(--ease);
+}
+
+.case-switch a:hover {
+  color: #fff;
+  background: var(--ink);
+  transform: translateY(-3px);
+}
+
+.case-footer-brand {
+  justify-self: end;
+  font-size: 34px;
+  font-weight: 800;
+  letter-spacing: -0.08em;
+}
+
+@media (max-width: 1050px) {
+  .case-header { grid-template-columns: auto 1fr; }
+  .case-nav { order: 3; grid-column: 1 / -1; justify-content: flex-start; overflow-x: auto; padding-bottom: 2px; }
+  .contact-link { justify-self: end; }
+  .case-hero { grid-template-columns: 1fr; }
+  .case-copy { max-width: 760px; }
+  .case-visual { min-height: 680px; }
+  .case-process { grid-template-columns: 1fr; }
+  .process-copy h2 { max-width: 12ch; }
+  .metric-grid { grid-template-columns: repeat(2, 1fr); }
+  .metric-card:nth-child(2) { border-right: 0; }
+  .metric-card:nth-child(-n+2) { border-bottom: 1px solid rgba(255,255,255,.18); }
+  .metric-card:last-child:nth-child(odd) { grid-column: 1 / -1; border-right: 0; }
+}
+
+@media (max-width: 720px) {
+  .case-header { gap: 14px; padding-inline: 18px; }
+  .back-link span, .contact-link span { display: none; }
+  .case-nav a { padding-inline: 12px; }
+  .case-hero { min-height: auto; padding: 70px 20px 90px; }
+  .case-title { font-size: clamp(58px, 18vw, 90px); }
+  .case-lead { font-size: 15px; }
+  .case-visual { min-height: 480px; border-radius: 22px; }
+  .visual-sphere-main { width: 58%; }
+  .visual-ring-a { width: 76%; }
+  .visual-metric { min-width: 54%; padding: 17px; }
+  .case-overview { grid-template-columns: 1fr; }
+  .overview-block { min-height: 0; border-right: 0; border-bottom: 1px solid var(--line); }
+  .overview-block:last-child { border-bottom: 0; }
+  .case-process { padding-inline: 20px; }
+  .process-item { grid-template-columns: 34px 1fr; }
+  .metrics-heading { align-items: flex-start; flex-direction: column; }
+  .metric-grid { grid-template-columns: 1fr; }
+  .metric-card,
+  .metric-card:nth-child(2) { min-height: 190px; border-right: 0; border-bottom: 1px solid rgba(255,255,255,.18); }
+  .metric-card:last-child:nth-child(odd) { grid-column: auto; }
+  .metric-card:last-child { border-bottom: 0; }
+  .case-footer { grid-template-columns: 1fr; padding-inline: 20px; }
+  .case-switch { flex-direction: column; align-items: flex-start; }
+  .case-footer-brand { justify-self: start; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  *, *::before, *::after {
+    animation-duration: .01ms !important;
+    transition-duration: .01ms !important;
+  }
+}
+    </style>
+  </head>
+  <body>
+    <header class="case-header">
+      <a class="back-link" href="../index.html#projects"><i>←</i><span>返回项目目录</span></a>
+      <nav class="case-nav" aria-label="实习项目">
+        <a href="#cloud-space" data-case-link="cloud-space">云空间</a>
+        <a href="#kwai-growth" data-case-link="kwai-growth">生态导流</a>
+        <a href="#ai-credits" data-case-link="ai-credits">AI Credits</a>
+        <a href="#vipshop-crm" data-case-link="vipshop-crm">智能召回</a>
+      </nav>
+      <a class="contact-link" href="../index.html#contact"><span>联系我</span><i>↗</i></a>
+    </header>
+
+    <main class="case-main" aria-live="polite">
+      <section class="case-hero">
+        <div class="case-copy">
+          <div class="case-kicker" data-case-kicker>KUAISHOU / CLOUD SPACE / 2026</div>
+          <h1 class="case-title" data-case-title>快影云空间升级</h1>
+          <p class="case-lead" data-case-lead>围绕草稿上传与空间释放场景，完成全链路体验升级和付费转化漏斗建设。</p>
+          <div class="case-role" data-case-tags>
+            <span>User Research</span><span>PRD</span><span>A/B Test</span>
+          </div>
+        </div>
+
+        <div class="case-visual" data-case-visual aria-hidden="true">
+          <div class="visual-grid"></div>
+          <div class="visual-word" data-visual-word>CLOUD</div>
+          <span class="visual-sphere visual-sphere-main"></span>
+          <span class="visual-sphere visual-sphere-small"></span>
+          <span class="visual-sphere visual-sphere-mini"></span>
+          <span class="visual-ring visual-ring-a"></span>
+          <span class="visual-ring visual-ring-b"></span>
+          <div class="visual-metric">
+            <small data-visual-label>UPLOAD RATE</small>
+            <strong data-visual-value>12.37%</strong>
+          </div>
+        </div>
+      </section>
+
+      <section class="case-overview" aria-label="项目概览">
+        <article class="overview-block">
+          <small>项目问题</small>
+          <h2>识别阻力</h2>
+          <p data-case-problem>草稿上传和空间释放路径存在体验断点，用户对空间价值与扩容时机的感知不足。</p>
+        </article>
+        <article class="overview-block">
+          <small>核心行动</small>
+          <h2>重构链路</h2>
+          <p data-case-action>梳理用户场景，完成上传体验与空间管理方案，并将扩容触点接入付费转化漏斗。</p>
+        </article>
+        <article class="overview-block">
+          <small>业务结果</small>
+          <h2>验证增长</h2>
+          <p data-case-result>上传率由 1.69% 提升至 12.37%，扩容点击率达到原来的 3.42 倍。</p>
+        </article>
+      </section>
+
+      <section class="case-process">
+        <div class="process-copy">
+          <small>工作路径</small>
+          <h2>从判断到落地</h2>
+        </div>
+        <div class="process-list" data-process-list></div>
+      </section>
+
+      <section class="case-metrics">
+        <div class="metrics-heading">
+          <div>
+            <small>验证结果</small>
+            <h2>用指标回答方案价值</h2>
+          </div>
+          <p data-metrics-note>指标来自公开简历内容，具体业务信息已进行脱敏处理。</p>
+        </div>
+        <div class="metric-grid" data-metric-grid></div>
+      </section>
+    </main>
+
+    <footer class="case-footer">
+      <p>本页仅展示公开可披露的项目信息。涉及业务策略、数据口径与内部流程的内容均已脱敏。</p>
+      <div class="case-switch">
+        <a href="#vipshop-crm" data-prev-case>← 上一个项目</a>
+        <a href="#kwai-growth" data-next-case>下一个项目 →</a>
+      </div>
+      <a class="case-footer-brand" href="../index.html">Q×H</a>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.15.0/dist/gsap.min.js"></script>
+    <script>
+const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+const gsapEngine = window.gsap;
+
+const projects = {
+  'cloud-space': {
+    kicker: 'KUAISHOU / CLOUD SPACE / 2026',
+    title: '快影云空间升级',
+    lead: '围绕草稿上传与空间释放场景，完成全链路体验升级和付费转化漏斗建设。',
+    tags: ['User Research', 'PRD', 'A/B Test'],
+    problem: '草稿上传和空间释放路径存在体验断点，用户对空间价值与扩容时机的感知不足。',
+    action: '梳理用户场景，完成上传体验与空间管理方案，并将扩容触点接入付费转化漏斗。',
+    result: '上传率由 1.69% 提升至 12.37%，扩容点击率达到原来的 3.42 倍。',
+    process: [
+      '围绕草稿上传、云端存储和空间释放场景梳理用户目标与关键阻力。',
+      '将体验问题拆成上传链路、空间管理和扩容转化三个可验证模块。',
+      '完成方案设计、PRD 协同和实验验证，持续观察关键行为指标。',
+    ],
+    metrics: [
+      ['12.37%', '升级后的草稿上传率'],
+      ['7.32×', '相对原上传率的增长'],
+      ['3.42×', '扩容入口点击率提升'],
+    ],
+    visualWord: 'CLOUD',
+    visualLabel: 'UPLOAD RATE',
+    visualValue: '12.37%',
+    colors: ['#ff8200', '#e94e00', '#ffd268', '#ffffff'],
+  },
+  'kwai-growth': {
+    kicker: 'KWAICUT / GLOBAL GROWTH / 2026',
+    title: 'Kwai 生态导流',
+    lead: '基于创作者生产行为识别高潜人群，设计多区域、多语言的生态导流策略。',
+    tags: ['Growth Strategy', 'Localization', 'Cross-team'],
+    problem: '全球用户语言和地区差异显著，通用导流策略难以同时满足人群识别与文案复用。',
+    action: '以近 30 天生产行为定义高潜创作者，建立区域、语言与触达文案的组合策略。',
+    result: '圈选 718 万高潜用户，沉淀 200+ 通用文案 Key，前端文案重复率降低 14.9%。',
+    process: [
+      '从内容生产活跃度和近期行为中定义高潜创作者的筛选条件。',
+      '按区域与语言组织下发规则，减少一套策略覆盖所有市场的误差。',
+      '沉淀可复用文案 Key，与前端和本地化团队共同降低重复实现。',
+    ],
+    metrics: [
+      ['718万', '圈选的高潜创作者规模'],
+      ['200+', '沉淀的通用文案 Key'],
+      ['14.9%', '前端文案重复率降低'],
+      ['多区域', '区域与语言组合下发'],
+    ],
+    visualWord: 'GLOBAL',
+    visualLabel: 'CREATORS',
+    visualValue: '7.18M',
+    colors: ['#d8e7df', '#aebfb5', '#f6f0df', '#24211d'],
+  },
+  'ai-credits': {
+    kicker: 'KWAICUT / AI MONETIZATION / 2026',
+    title: 'AI Credits 体系',
+    lead: '围绕 AI 能力使用与付费转化，规划从 Paywall 到 Credits 消耗和应用内支付的 MVP 闭环。',
+    tags: ['Competitive Research', 'Monetization', 'MVP'],
+    problem: 'AI 功能缺少统一的价值展示、次数消耗和付费承接机制，商业化路径需要从零搭建。',
+    action: '调研 CapCut、InShot、VN、KlingAI，拆解 Paywall、Credits 与应用内支付的关键机制。',
+    result: '形成覆盖价值展示、额度消耗、Apple IAP 与 Google Play Billing 的 MVP 产品闭环。',
+    process: [
+      '对四个视频与 AI 产品进行竞品研究，比较付费墙、权益和 Credits 设计。',
+      '明确 Credits 的获取、消耗与异常状态，定义首版产品边界。',
+      '串联 Paywall、AI 功能调用和双端应用内支付，输出 MVP 方案。',
+    ],
+    metrics: [
+      ['MVP', '首版商业化闭环'],
+      ['4 个', '重点研究的竞品'],
+      ['IAP', 'Apple 应用内支付'],
+      ['GPB', 'Google Play Billing'],
+    ],
+    visualWord: 'AI',
+    visualLabel: 'MONETIZATION',
+    visualValue: 'MVP',
+    colors: ['#1760c4', '#061c55', '#24ddff', '#ffffff'],
+  },
+  'vipshop-crm': {
+    kicker: 'VIPSHOP / USER GROWTH / 2025',
+    title: '智能召回增长引擎',
+    lead: '以用户和主题相关性为基础建立召回策略，同时优化短信渠道的增量价值与成本效率。',
+    tags: ['Data Model', 'Experiment', 'ROI'],
+    problem: '召回触达缺少用户与内容主题的相关性判断，渠道策略也需要兼顾增量与成本。',
+    action: '构建用户和主题相关性模型，推动策略覆盖，并同步优化挂机短信实验与发送规则。',
+    result: '策略覆盖 1400 万用户，实现 60% 回访率和季度 8 万增量客户，季度节省渠道成本 82 万元。',
+    process: [
+      '结合用户行为与主题特征建立相关性判断，提升召回内容匹配度。',
+      '推进策略覆盖和实验验证，持续对比回访、增量客户与渠道成本。',
+      '优化挂机短信发送策略，在保持增长贡献的同时减少无效成本。',
+    ],
+    metrics: [
+      ['1400万', '策略覆盖用户规模'],
+      ['60%', '策略用户回访率'],
+      ['8万', '季度增量客户'],
+      ['82万', '季度渠道成本节省'],
+    ],
+    visualWord: 'CRM',
+    visualLabel: 'RETURN RATE',
+    visualValue: '60%',
+    colors: ['#ff9c7f', '#f36d9b', '#ffd151', '#24211d'],
+  },
+};
+
+const projectKeys = Object.keys(projects);
+const qs = (selector, root = document) => root.querySelector(selector);
+const qsa = (selector, root = document) => Array.from(root.querySelectorAll(selector));
+
+function currentKey() {
+  const key = window.location.hash.slice(1);
+  return projects[key] ? key : 'cloud-space';
+}
+
+function renderProject(animate = true) {
+  const key = currentKey();
+  const project = projects[key];
+  const index = projectKeys.indexOf(key);
+  const previousKey = projectKeys[(index - 1 + projectKeys.length) % projectKeys.length];
+  const nextKey = projectKeys[(index + 1) % projectKeys.length];
+
+  document.title = project.title + ' | 邱琪涵产品作品集';
+  qs('[data-case-kicker]').textContent = project.kicker;
+  qs('[data-case-title]').textContent = project.title;
+  qs('[data-case-lead]').textContent = project.lead;
+  qs('[data-case-problem]').textContent = project.problem;
+  qs('[data-case-action]').textContent = project.action;
+  qs('[data-case-result]').textContent = project.result;
+  qs('[data-visual-word]').textContent = project.visualWord;
+  qs('[data-visual-label]').textContent = project.visualLabel;
+  qs('[data-visual-value]').textContent = project.visualValue;
+
+  const visual = qs('[data-case-visual]');
+  visual.style.setProperty('--case-start', project.colors[0]);
+  visual.style.setProperty('--case-end', project.colors[1]);
+  visual.style.setProperty('--case-light', project.colors[2]);
+  visual.style.setProperty('--case-ink', project.colors[3]);
+
+  qs('[data-case-tags]').replaceChildren(
+    ...project.tags.map((tag) => {
+      const span = document.createElement('span');
+      span.textContent = tag;
+      return span;
+    })
+  );
+
+  qs('[data-process-list]').replaceChildren(
+    ...project.process.map((item, itemIndex) => {
+      const article = document.createElement('article');
+      article.className = 'process-item';
+      const number = document.createElement('span');
+      number.textContent = String(itemIndex + 1).padStart(2, '0');
+      const copy = document.createElement('p');
+      copy.textContent = item;
+      article.append(number, copy);
+      return article;
+    })
+  );
+
+  qs('[data-metric-grid]').replaceChildren(
+    ...project.metrics.map(([value, label]) => {
+      const article = document.createElement('article');
+      article.className = 'metric-card';
+      const strong = document.createElement('strong');
+      strong.textContent = value;
+      const span = document.createElement('span');
+      span.textContent = label;
+      article.append(strong, span);
+      return article;
+    })
+  );
+
+  qsa('[data-case-link]').forEach((link) => {
+    const active = link.dataset.caseLink === key;
+    link.classList.toggle('active', active);
+    if (active) link.setAttribute('aria-current', 'page');
+    else link.removeAttribute('aria-current');
+  });
+
+  qs('[data-prev-case]').href = '#' + previousKey;
+  qs('[data-next-case]').href = '#' + nextKey;
+
+  if (animate && !reducedMotion) animateProject();
+}
+
+function animateProject() {
+  const copyItems = [
+    qs('[data-case-kicker]'),
+    qs('[data-case-title]'),
+    qs('[data-case-lead]'),
+    qs('[data-case-tags]'),
+  ];
+  const visual = qs('[data-case-visual]');
+  const overview = qsa('.overview-block');
+  const processItems = qsa('.process-item');
+  const metrics = qsa('.metric-card');
+
+  if (gsapEngine) {
+    gsapEngine.killTweensOf([...copyItems, visual, ...overview, ...processItems, ...metrics]);
+    gsapEngine.timeline({ defaults: { ease: 'power3.out' } })
+      .fromTo(copyItems, { autoAlpha: 0, y: 28 }, { autoAlpha: 1, y: 0, duration: 0.66, stagger: 0.07 }, 0)
+      .fromTo(
+        visual,
+        { autoAlpha: 0, y: 48, scale: 0.88, rotation: 1.4 },
+        { autoAlpha: 1, y: 0, scale: 1, rotation: 0, duration: 1.1, ease: 'elastic.out(1, 0.45)' },
+        0.08
+      )
+      .fromTo(overview, { autoAlpha: 0, y: 30 }, { autoAlpha: 1, y: 0, duration: 0.62, stagger: 0.08 }, 0.28)
+      .fromTo(processItems, { autoAlpha: 0, x: 24 }, { autoAlpha: 1, x: 0, duration: 0.58, stagger: 0.06 }, 0.38)
+      .fromTo(metrics, { autoAlpha: 0, y: 28, scale: 0.94 }, { autoAlpha: 1, y: 0, scale: 1, duration: 0.7, stagger: 0.06 }, 0.44);
+    return;
+  }
+
+  [...copyItems, visual, ...overview, ...processItems, ...metrics].forEach((element, index) => {
+    const animation = element.animate(
+      [
+        { opacity: 0, transform: 'translateY(28px) scale(.96)' },
+        { opacity: 1, transform: 'translateY(0) scale(1)' },
+      ],
+      {
+        duration: element === visual ? 980 : 620,
+        delay: index * 45,
+        easing: element === visual
+          ? 'cubic-bezier(.18, 1.35, .28, 1)'
+          : 'cubic-bezier(.16, 1, .3, 1)',
+        fill: 'both',
+      }
+    );
+    animation.finished.then(() => animation.cancel()).catch(() => undefined);
+  });
+}
+
+window.addEventListener('hashchange', () => {
+  window.scrollTo({ top: 0, behavior: reducedMotion ? 'auto' : 'smooth' });
+  renderProject();
+});
+
+if (!window.location.hash || !projects[window.location.hash.slice(1)]) {
+  history.replaceState(null, '', '#cloud-space');
+}
+renderProject(false);
+window.requestAnimationFrame(() => animateProject());
+    </script>
+  </body>
+</html>

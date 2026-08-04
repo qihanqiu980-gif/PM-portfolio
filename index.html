@@ -8,7 +8,7 @@
       content="邱琪涵的产品经理作品集：商业化、用户增长、AI 产品与数据实验。"
     />
     <meta name="theme-color" content="#f4efe6" />
-    <title>邱琪涵 — 产品经理作品集</title>
+    <title>邱琪涵 - 产品经理作品集</title>
     <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='16' fill='%230a3180'/%3E%3Cpath d='M16 17v30h8V35h16v12h8V17h-8v11H24V17z' fill='white'/%3E%3C/svg%3E" />
     <style>
 :root {
@@ -1308,193 +1308,6 @@ body.is-page-transitioning { overflow: hidden; }
   line-height: 1.9;
 }
 
-.deck-layout {
-  position: relative;
-  z-index: 3;
-  display: grid;
-  grid-template-columns: minmax(310px, 0.72fr) minmax(580px, 1.28fr);
-  align-items: center;
-  gap: clamp(50px, 8vw, 130px);
-  max-width: 1410px;
-  min-height: 720px;
-  margin: 20px auto 0;
-}
-
-.deck-copy {
-  position: relative;
-  align-self: center;
-}
-
-.deck-count {
-  display: flex;
-  align-items: center;
-  gap: 13px;
-  margin-bottom: 46px;
-  font: 500 12px/1 var(--mono);
-}
-
-.deck-count span:first-child { color: var(--orange); font-size: 25px; }
-.deck-count i { width: 80px; height: 1px; background: var(--line); }
-
-.deck-copy-track {
-  position: relative;
-  min-height: 288px;
-}
-
-.deck-description {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  opacity: 0;
-  pointer-events: none;
-  transform: translateY(24px);
-  transition: opacity 0.45s, transform 0.55s var(--ease);
-}
-
-.deck-description.active {
-  opacity: 1;
-  pointer-events: auto;
-  transform: translateY(0);
-}
-
-.project-type {
-  margin: 0 0 15px;
-  color: var(--orange);
-  font: 500 10px/1 var(--mono);
-  letter-spacing: 0.1em;
-}
-
-.deck-description h3 {
-  margin: 0 0 18px;
-  font-size: clamp(38px, 4vw, 66px);
-  line-height: 1;
-  letter-spacing: -0.055em;
-}
-
-.deck-description > p:not(.project-type) {
-  max-width: 430px;
-  margin: 0;
-  color: var(--muted);
-  font-size: 14px;
-  line-height: 1.9;
-}
-
-.project-tags {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 8px;
-  margin-top: 28px;
-}
-
-.project-tags span {
-  padding: 7px 11px;
-  border: 1px solid var(--line);
-  border-radius: 999px;
-  font: 400 9px/1 var(--mono);
-}
-
-.deck-controls {
-  display: flex;
-  align-items: center;
-  gap: 9px;
-  margin-top: 28px;
-}
-
-.deck-button {
-  display: grid;
-  place-items: center;
-  width: 51px;
-  height: 51px;
-  padding: 0;
-  border: 1px solid var(--line);
-  border-radius: 50%;
-  background: transparent;
-  cursor: pointer;
-  transition: color 0.3s, background 0.3s, border-color 0.3s;
-}
-
-.deck-button:hover {
-  color: #fff;
-  border-color: var(--orange);
-  background: var(--orange);
-}
-
-.deck-button svg { width: 21px; fill: none; stroke: currentColor; stroke-width: 1.8; }
-.drag-tip { margin-left: 13px; color: var(--muted); font: 400 9px/1 var(--mono); letter-spacing: 0.08em; }
-
-.project-deck {
-  position: relative;
-  justify-self: center;
-  width: min(48vw, 690px);
-  min-width: 570px;
-  aspect-ratio: 1.08;
-  outline: none;
-  perspective: 1400px;
-  touch-action: pan-y;
-  user-select: none;
-}
-
-.project-card {
-  --offset-x: 0px;
-  --offset-y: 0px;
-  --rotation: 0deg;
-  --scale: 1;
-  position: absolute;
-  top: 3%;
-  left: 2%;
-  width: 88%;
-  height: 88%;
-  border: 1px solid rgba(36, 33, 29, 0.15);
-  border-radius: 26px;
-  background: #fff;
-  box-shadow: 0 26px 70px rgba(61, 40, 17, 0.2);
-  overflow: hidden;
-  cursor: grab;
-  transform: translate3d(var(--offset-x), var(--offset-y), 0) rotate(var(--rotation)) scale(var(--scale));
-  transform-origin: 50% 90%;
-  transition: transform 0.72s var(--ease), opacity 0.35s, filter 0.35s, box-shadow 0.35s;
-  will-change: transform;
-}
-
-.project-card.dragging {
-  cursor: grabbing;
-  transition: none;
-}
-
-.project-card.is-active {
-  box-shadow: 0 34px 90px rgba(61, 40, 17, 0.25);
-}
-
-.project-deck:hover .project-card:not(.dragging) {
-  transform: translate3d(var(--fan-x, var(--offset-x)), var(--fan-y, var(--offset-y)), 0) rotate(var(--fan-r, var(--rotation))) scale(var(--scale));
-}
-
-.project-card:not(.is-active) {
-  filter: saturate(0.82) brightness(0.94);
-}
-
-.project-art {
-  position: relative;
-  height: calc(100% - 68px);
-  overflow: hidden;
-}
-
-.project-card footer {
-  display: grid;
-  grid-template-columns: 40px 1fr auto;
-  align-items: center;
-  height: 68px;
-  padding: 0 23px;
-  color: var(--ink);
-  background: #f9f6f0;
-  font: 500 11px/1 var(--mono);
-}
-
-.project-card footer span { color: var(--orange); }
-.project-card footer strong { font-size: 12px; letter-spacing: 0.04em; }
-.project-card footer small { color: var(--muted); font: inherit; }
-
 .art-label {
   position: absolute;
   top: 24px;
@@ -1587,6 +1400,264 @@ body.is-page-transitioning { overflow: hidden; }
 .blob-c { top: 19%; left: 27%; width: 36%; height: 50%; background: #ffdc2f; transform: rotate(8deg); }
 .motion-word { position: absolute; z-index: 3; top: 41%; left: 50%; color: #181818; font-size: clamp(67px, 7vw, 116px); font-weight: 800; line-height: 1; letter-spacing: -.1em; transform: translate(-50%, -50%) rotate(-7deg); }
 .motion-stamp { position: absolute; right: 6%; bottom: 6%; z-index: 4; padding: 13px; border: 2px solid #181818; border-radius: 50%; font: 500 8px/1.25 var(--mono); text-align: center; transform: rotate(13deg); }
+
+.project-catalog {
+  position: relative;
+  z-index: 3;
+  max-width: 1450px;
+  margin: 58px auto 0;
+  padding: clamp(20px, 2.2vw, 34px);
+  border: 1px solid rgba(36, 33, 29, 0.13);
+  border-radius: 30px;
+  background: rgba(255, 255, 255, 0.82);
+  box-shadow: 0 36px 90px rgba(77, 51, 20, 0.09);
+  backdrop-filter: blur(18px);
+}
+
+.project-catalog-head {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(280px, 0.55fr);
+  align-items: end;
+  gap: 50px;
+  padding: clamp(16px, 2.4vw, 32px) clamp(8px, 1vw, 14px) clamp(32px, 4vw, 58px);
+}
+
+.project-catalog-head h2 {
+  max-width: 850px;
+  margin: 0;
+  font-size: clamp(52px, 6.8vw, 112px);
+  font-weight: 800;
+  line-height: 0.86;
+  letter-spacing: -0.075em;
+}
+
+.project-catalog-head h2 em {
+  display: block;
+  padding-bottom: 0.08em;
+  color: var(--orange);
+  font-family: inherit;
+  font-weight: 500;
+  line-height: 1.05;
+}
+
+.project-catalog-head p {
+  max-width: 430px;
+  margin: 0 0 4px;
+  color: var(--muted);
+  font-size: 14px;
+  line-height: 1.85;
+}
+
+.project-catalog-grid {
+  display: grid;
+  grid-template-columns: 1.28fr 0.92fr 0.8fr;
+  grid-template-rows: minmax(330px, 38vw) minmax(285px, 31vw);
+  gap: 15px;
+}
+
+.project-module {
+  --module-tilt: 0deg;
+  position: relative;
+  display: flex;
+  min-width: 0;
+  min-height: 0;
+  padding: clamp(22px, 2.5vw, 38px);
+  color: #fff;
+  border: 1px solid rgba(36, 33, 29, 0.12);
+  border-radius: 22px;
+  overflow: hidden;
+  isolation: isolate;
+  text-decoration: none;
+  box-shadow: 0 18px 45px rgba(55, 36, 16, 0.1);
+  transform: translateZ(0);
+  transition:
+    transform 0.55s var(--ease),
+    box-shadow 0.55s var(--ease),
+    filter 0.4s ease;
+}
+
+.project-module::after {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  background: linear-gradient(180deg, rgba(11, 12, 14, 0.06), rgba(11, 12, 14, 0.68));
+  content: '';
+  pointer-events: none;
+}
+
+.project-module:hover {
+  box-shadow: 0 34px 75px rgba(55, 36, 16, 0.2);
+  transform: translateY(-8px) rotate(var(--module-tilt)) scale(1.008);
+}
+
+.project-module:active { transform: translateY(-2px) scale(0.985); }
+
+.project-module:focus-visible {
+  outline: 3px solid var(--orange);
+  outline-offset: 4px;
+}
+
+.project-module-cloud {
+  --module-tilt: -0.45deg;
+  grid-column: 1 / 3;
+  grid-row: 1;
+}
+
+.project-module-kwai {
+  --module-tilt: 0.75deg;
+  grid-column: 3;
+  grid-row: 1;
+  color: var(--ink);
+}
+
+.project-module-ai {
+  --module-tilt: -0.7deg;
+  grid-column: 1;
+  grid-row: 2;
+}
+
+.project-module-vip {
+  --module-tilt: 0.55deg;
+  grid-column: 2 / 4;
+  grid-row: 2;
+  color: var(--ink);
+}
+
+.project-module-kwai::after,
+.project-module-vip::after {
+  background: linear-gradient(180deg, rgba(255,255,255,.02), rgba(255,255,255,.76));
+}
+
+.project-module-visual {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  transition: transform 0.75s var(--ease), filter 0.5s ease;
+}
+
+.project-module:hover .project-module-visual { transform: scale(1.035) translateY(-4px); }
+
+.project-module-copy {
+  position: relative;
+  z-index: 3;
+  display: flex;
+  flex-direction: column;
+  align-self: flex-end;
+  width: min(100%, 570px);
+}
+
+.project-module-copy small {
+  margin-bottom: 12px;
+  font: 500 9px/1.3 var(--mono);
+  letter-spacing: 0.1em;
+  opacity: 0.76;
+}
+
+.project-module-copy h3 {
+  max-width: 12ch;
+  margin: 0;
+  font-size: clamp(30px, 3.4vw, 56px);
+  line-height: 0.95;
+  letter-spacing: -0.055em;
+}
+
+.project-module-copy p {
+  max-width: 46ch;
+  margin: 15px 0 0;
+  font-size: 12px;
+  line-height: 1.7;
+  opacity: 0.82;
+}
+
+.project-module-open {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  margin-top: 22px;
+  font: 500 10px/1 var(--mono);
+  letter-spacing: 0.06em;
+}
+
+.project-module-open i {
+  display: grid;
+  place-items: center;
+  width: 28px;
+  height: 28px;
+  border: 1px solid currentColor;
+  border-radius: 50%;
+  font-style: normal;
+  transition: transform 0.45s var(--ease), background 0.35s, color 0.35s;
+}
+
+.project-module:hover .project-module-open i { transform: translate(4px, -4px); }
+
+.project-module-cloud .sphere-one { top: 10%; right: 9%; width: 30%; }
+.project-module-cloud .sphere-two { top: 13%; left: 48%; width: 9%; }
+.project-module-cloud .sphere-three { right: 39%; bottom: 11%; width: 7%; }
+.project-module-cloud .ring-one { top: 6%; right: 2%; width: 45%; height: 47%; }
+.project-module-cloud .ring-two { top: 23%; right: 15%; width: 33%; height: 62%; }
+.project-module-cloud .art-window { right: 6%; bottom: 8%; left: auto; width: min(34%, 260px); }
+
+.project-module-kwai .arch { left: 9%; bottom: 22%; width: 38%; }
+.project-module-kwai .ball { top: 14%; right: 10%; width: 38%; }
+.project-module-kwai .plinth { right: 6%; bottom: 9%; width: 55%; }
+.project-module-kwai .chrome { left: 39%; bottom: 16%; width: 17%; }
+.project-module-kwai .vertical-word { right: -20px; top: 38%; font-size: 58px; }
+
+.project-module-ai .city-title {
+  left: 8%;
+  bottom: auto;
+  top: 10%;
+  font-size: clamp(42px, 5vw, 70px);
+}
+
+.project-module-ai .city-data { top: auto; right: 8%; bottom: 8%; }
+
+.project-module-vip .motion-word {
+  top: 35%;
+  left: 73%;
+  font-size: clamp(72px, 8vw, 128px);
+}
+
+.project-module-vip .motion-stamp { right: 4%; bottom: 8%; }
+
+.project-catalog-note {
+  display: flex;
+  justify-content: space-between;
+  gap: 24px;
+  padding: 22px 10px 2px;
+  color: var(--muted);
+  font: 400 9px/1.6 var(--mono);
+  letter-spacing: 0.05em;
+}
+
+@media (max-width: 900px) {
+  .project-catalog { margin-top: 48px; border-radius: 24px; }
+  .project-catalog-head { grid-template-columns: 1fr; gap: 24px; }
+  .project-catalog-head p { max-width: 560px; }
+  .project-catalog-grid {
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 390px 320px 340px;
+  }
+  .project-module-cloud { grid-column: 1 / 3; grid-row: 1; }
+  .project-module-kwai { grid-column: 1; grid-row: 2; }
+  .project-module-ai { grid-column: 2; grid-row: 2; }
+  .project-module-vip { grid-column: 1 / 3; grid-row: 3; }
+}
+
+@media (max-width: 620px) {
+  .project-catalog { margin-inline: -4px; padding: 9px; border-radius: 20px; }
+  .project-catalog-head { padding: 28px 14px 36px; }
+  .project-catalog-head h2 { font-size: 50px; }
+  .project-catalog-grid { display: flex; flex-direction: column; }
+  .project-module { min-height: 330px; padding: 24px; }
+  .project-module-cloud { min-height: 390px; }
+  .project-module-copy h3 { font-size: 36px; }
+  .project-module-copy p { max-width: 34ch; }
+  .project-module-cloud .art-window { width: 48%; }
+  .project-module-vip .motion-word { left: 67%; }
+  .project-catalog-note { flex-direction: column; gap: 5px; padding: 18px 12px 8px; }
+}
 
 .principles {
   display: grid;
@@ -1835,8 +1906,6 @@ body.is-page-transitioning { overflow: hidden; }
   .console-body { min-height: 410px; padding: 28px; }
   .avatar-orbit { width:210px; height:210px; }
   .projects { padding-inline:55px; }
-  .deck-layout { grid-template-columns: .68fr 1.32fr; gap:45px; }
-  .project-deck { width:55vw; min-width:530px; }
   .contact { padding-inline:55px; }
 }
 
@@ -1862,12 +1931,6 @@ body.is-page-transitioning { overflow: hidden; }
   .education-strip article:last-child { border-bottom:0; }
   .marquee { width:calc(100% + 56px); margin:70px -28px -80px; }
   .projects { min-height:auto; padding:105px 28px 110px; }
-  .projects-heading { grid-template-columns:1fr; }
-  .section-intro { margin:35px 0 0; }
-  .deck-layout { grid-template-columns:1fr; gap:45px; min-height:0; margin-top:70px; }
-  .deck-copy { order:2; }
-  .project-deck { order:1; width:min(88vw,680px); min-width:0; }
-  .deck-copy-track { min-height:240px; }
   .principles { grid-template-columns:1fr; }
   .experience-heading { grid-template-columns:1fr; gap:40px; padding:90px 28px 55px; }
   .experience-heading h2 { justify-self:start; }
@@ -1905,14 +1968,6 @@ body.is-page-transitioning { overflow: hidden; }
   .education-strip article { padding:24px 20px; }
   .marquee { width:calc(100% + 40px); margin-inline:-20px; }
   .projects { padding-inline:20px; }
-  .section-title { font-size:56px; }
-  .project-deck { width:95vw; margin-left:-4vw; aspect-ratio:.91; }
-  .project-card { top:4%; left:4%; width:87%; height:84%; border-radius:20px; }
-  .project-art { height:calc(100% - 58px); }
-  .project-card footer { height:58px; grid-template-columns:30px 1fr; padding:0 16px; }
-  .project-card footer small { display:none; }
-  .drag-tip { display:none; }
-  .deck-copy-track { min-height:280px; }
   .principle-card { padding:38px 24px; }
   .experience-heading { padding-inline:20px; }
   .experience-heading h2 { font-size:50px; }
@@ -1929,12 +1984,6 @@ body.is-page-transitioning { overflow: hidden; }
   .page-transition-copy { grid-template-columns:1fr; grid-template-rows:auto 1fr auto; padding:28px 20px 34px; }
   .transition-section strong { max-width:9ch; font-size:clamp(50px,18vw,82px); }
   .transition-flow { grid-column:1; justify-self:start; white-space:normal; }
-}
-
-@media (hover: none) {
-  .project-deck:hover .project-card:not(.dragging) {
-    transform: translate3d(var(--offset-x), var(--offset-y), 0) rotate(var(--rotation)) scale(var(--scale));
-  }
 }
 
 @media (prefers-reduced-motion: reduce) {
@@ -2262,12 +2311,12 @@ body.is-page-transitioning { overflow: hidden; }
 
         <div class="education-strip reveal" aria-label="教育经历与荣誉">
           <article>
-            <span>2026.09 — 2028.07</span>
+            <span>2026.09 - 2028.07</span>
             <h3>暨南大学</h3>
             <p>产业经济研究院 · 数字经济学 · 硕士研究生</p>
           </article>
           <article>
-            <span>2022.09 — 2026.07</span>
+            <span>2022.09 - 2026.07</span>
             <h3>广东工业大学</h3>
             <p>经济学院 · 数字经济学 · 本科</p>
           </article>
@@ -2287,57 +2336,18 @@ body.is-page-transitioning { overflow: hidden; }
       </section>
 
       <section class="projects section-light" id="projects" data-section-name="projects">
-        <div class="projects-heading">
-          <div class="section-kicker reveal"><span>02</span> SELECTED CASES / 核心项目</div>
-          <h2 class="section-title reveal">Ideas tested<br /><em>by real data.</em></h2>
-          <p class="section-intro reveal">悬停展开卡片，左右拖动切换项目。以下内容依据公开简历进行摘要，敏感业务信息已脱敏。</p>
-        </div>
-
-        <div class="deck-layout reveal">
-          <div class="deck-copy" aria-live="polite">
-            <div class="deck-count"><span id="project-current">01</span><i></i><span>04</span></div>
-            <div class="deck-copy-track">
-              <article class="deck-description active" data-description="0">
-                <p class="project-type">KUAISHOU · CLOUD SPACE · 2026</p>
-                <h3>快影云空间升级</h3>
-                <p>围绕草稿上传与空间释放场景完成全链路体验升级和付费转化漏斗建设，推动上传率由 1.69% 提升至 12.37%，扩容点击率达到原来的 3.42 倍。</p>
-                <div class="project-tags"><span>User Research</span><span>PRD</span><span>A/B Test</span></div>
-              </article>
-              <article class="deck-description" data-description="1">
-                <p class="project-type">KWAICUT · GLOBAL GROWTH · 2026</p>
-                <h3>Kwai 生态导流</h3>
-                <p>以近 30 天生产行为定义高潜创作者，圈选 718 万用户并设计多区域、多语言下发策略；沉淀 200+ 通用文案 Key，前端文案重复率降低 14.9%。</p>
-                <div class="project-tags"><span>Growth Strategy</span><span>Localization</span><span>Cross-team</span></div>
-              </article>
-              <article class="deck-description" data-description="2">
-                <p class="project-type">KWAICUT · AI MONETIZATION · 2026</p>
-                <h3>AI Credits 体系</h3>
-                <p>调研 CapCut、InShot、VN、KlingAI 等产品，规划从 Paywall、AI Credits 消耗到 Apple IAP / Google Play Billing 的 MVP 商业化闭环。</p>
-                <div class="project-tags"><span>Competitive Research</span><span>Monetization</span><span>MVP</span></div>
-              </article>
-              <article class="deck-description" data-description="3">
-                <p class="project-type">VIPSHOP · USER GROWTH · 2025</p>
-                <h3>智能召回增长引擎</h3>
-                <p>构建用户—主题相关性模型并推动策略覆盖 1,400 万用户，实现 60% 回访率和季度 8 万增量客户；同时优化挂机短信策略，季度节省渠道成本 82 万元。</p>
-                <div class="project-tags"><span>Data Model</span><span>Experiment</span><span>ROI</span></div>
-              </article>
+        <div class="project-catalog reveal">
+          <header class="project-catalog-head">
+            <div>
+              <div class="section-kicker">SELECTED CASES / 核心项目</div>
+              <h2>Ideas tested<em>by real data.</em></h2>
             </div>
+            <p>从用户问题、方案设计到指标验证。选择一个项目模块，查看完整的实习项目背景、决策过程和结果。</p>
+          </header>
 
-            <div class="deck-controls">
-              <button type="button" class="deck-button deck-prev magnetic" aria-label="上一个项目">
-                <svg viewBox="0 0 24 24"><path d="m15 5-7 7 7 7" /></svg>
-              </button>
-              <button type="button" class="deck-button deck-next magnetic" aria-label="下一个项目">
-                <svg viewBox="0 0 24 24"><path d="m9 5 7 7-7 7" /></svg>
-              </button>
-              <span class="drag-tip">DRAG THE CARDS ↔</span>
-            </div>
-          </div>
-
-          <div class="project-deck" tabindex="0" aria-label="项目卡片，可使用左右方向键切换">
-            <article class="project-card card-orange" data-project="0">
-              <div class="project-art orbit-art">
-                <span class="art-label">KUAIYING / CLOUD</span>
+          <div class="project-catalog-grid" aria-label="实习项目列表">
+            <a class="project-module project-module-cloud" href="projects/index.html#cloud-space" data-module-tilt="-0.45" aria-label="查看快影云空间升级项目">
+              <div class="project-module-visual orbit-art" aria-hidden="true">
                 <span class="orbit-sphere sphere-one"></span>
                 <span class="orbit-sphere sphere-two"></span>
                 <span class="orbit-sphere sphere-three"></span>
@@ -2346,27 +2356,33 @@ body.is-page-transitioning { overflow: hidden; }
                 <div class="art-window">
                   <small>UPLOAD RATE</small>
                   <strong>12.37%</strong>
-                  <span><i></i></span>
                 </div>
               </div>
-              <footer><span>01</span><strong>快影云空间</strong><small>7.32× GROWTH ↗</small></footer>
-            </article>
+              <div class="project-module-copy">
+                <small>KUAISHOU / CLOUD SPACE / 2026</small>
+                <h3>快影云空间升级</h3>
+                <p>上传率从 1.69% 提升至 12.37%，扩容点击率达到原来的 3.42 倍。</p>
+                <span class="project-module-open">查看完整案例 <i>↗</i></span>
+              </div>
+            </a>
 
-            <article class="project-card card-ivory" data-project="1">
-              <div class="project-art object-art">
-                <span class="art-label dark">KWAI ↔ KWAICUT</span>
+            <a class="project-module project-module-kwai" href="projects/index.html#kwai-growth" data-module-tilt="0.75" aria-label="查看 Kwai 生态导流项目">
+              <div class="project-module-visual object-art" aria-hidden="true">
                 <span class="object arch"></span>
                 <span class="object ball"></span>
                 <span class="object plinth"></span>
                 <span class="object chrome"></span>
-                <div class="vertical-word">7.18M</div>
               </div>
-              <footer><span>02</span><strong>GLOBAL PLC</strong><small>10 LANGUAGES ↗</small></footer>
-            </article>
+              <div class="project-module-copy">
+                <small>KWAICUT / GLOBAL GROWTH / 2026</small>
+                <h3>Kwai 生态导流</h3>
+                <p>圈选 718 万高潜创作者，建立多区域、多语言下发策略。</p>
+                <span class="project-module-open">查看完整案例 <i>↗</i></span>
+              </div>
+            </a>
 
-            <article class="project-card card-blue" data-project="2">
-              <div class="project-art city-art">
-                <span class="art-label">GLOBAL IAP / AI</span>
+            <a class="project-module project-module-ai" href="projects/index.html#ai-credits" data-module-tilt="-0.7" aria-label="查看 AI Credits 商业化项目">
+              <div class="project-module-visual city-art" aria-hidden="true">
                 <div class="city-grid"></div>
                 <span class="map-line line-a"></span>
                 <span class="map-line line-b"></span>
@@ -2374,22 +2390,36 @@ body.is-page-transitioning { overflow: hidden; }
                 <span class="map-dot dot-b"></span>
                 <span class="map-dot dot-c"></span>
                 <div class="city-title">AI<br />CREDITS</div>
-                <div class="city-data">PAYWALL<br />IAP · GPB</div>
+                <div class="city-data">PAYWALL<br />IAP / GPB</div>
               </div>
-              <footer><span>03</span><strong>AI CREDITS</strong><small>MVP LOOP ↗</small></footer>
-            </article>
+              <div class="project-module-copy">
+                <small>KWAICUT / AI MONETIZATION / 2026</small>
+                <h3>AI Credits 体系</h3>
+                <p>规划从 Paywall、Credits 消耗到应用内支付的 MVP 闭环。</p>
+                <span class="project-module-open">查看完整案例 <i>↗</i></span>
+              </div>
+            </a>
 
-            <article class="project-card card-pink" data-project="3">
-              <div class="project-art motion-art">
-                <span class="art-label dark">VIPSHOP / USER GROWTH</span>
+            <a class="project-module project-module-vip" href="projects/index.html#vipshop-crm" data-module-tilt="0.55" aria-label="查看唯品会智能召回增长项目">
+              <div class="project-module-visual motion-art" aria-hidden="true">
                 <span class="blob blob-a"></span>
                 <span class="blob blob-b"></span>
                 <span class="blob blob-c"></span>
                 <div class="motion-word">60%</div>
                 <div class="motion-stamp">14M<br />USERS<br />+80K</div>
               </div>
-              <footer><span>04</span><strong>VIPSHOP CRM</strong><small>¥820K SAVED ↗</small></footer>
-            </article>
+              <div class="project-module-copy">
+                <small>VIPSHOP / USER GROWTH / 2025</small>
+                <h3>智能召回增长引擎</h3>
+                <p>策略覆盖 1400 万用户，实现 60% 回访率和季度 8 万增量客户。</p>
+                <span class="project-module-open">查看完整案例 <i>↗</i></span>
+              </div>
+            </a>
+          </div>
+
+          <div class="project-catalog-note">
+            <span>点击任意模块进入对应项目页</span>
+            <span>公开信息已脱敏处理</span>
           </div>
         </div>
       </section>
@@ -2400,21 +2430,21 @@ body.is-page-transitioning { overflow: hidden; }
           <h2>Three teams.<br /><em>One product mindset.</em></h2>
         </div>
         <div class="principle-card reveal">
-          <span>2026.03 — 2026.08</span>
+          <span>2026.03 - 2026.08</span>
           <div class="principle-icon"><i></i><i></i><i></i></div>
           <h3>快手</h3>
           <small>商业化产品经理 · 快影</small>
           <p>负责国内外商业化与用户增长产品建设，覆盖云空间付费转化、Kwai 生态导流与 AI IAP 变现规划。</p>
         </div>
         <div class="principle-card reveal">
-          <span>2025.09 — 2026.03</span>
+          <span>2025.09 - 2026.03</span>
           <div class="principle-icon icon-loop"><i></i><i></i></div>
           <h3>唯品会</h3>
           <small>用户产品实习生 · 外呼策略</small>
           <p>围绕流失老客召回建设用户增长引擎，负责个性化主题匹配、A/B 实验及挂机短信 ROI 策略。</p>
         </div>
         <div class="principle-card reveal">
-          <span>2024.04 — 2024.08</span>
+          <span>2024.04 - 2024.08</span>
           <div class="principle-icon icon-code"><b>&lt;/&gt;</b></div>
           <h3>欢聚时代</h3>
           <small>渠道运营实习生</small>
@@ -2470,7 +2500,6 @@ body.is-page-transitioning { overflow: hidden; }
 const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
 const state = {
-  activeProject: 0,
   soundOn: false,
   audioContext: null,
   lastScrollY: 0,
@@ -2584,7 +2613,7 @@ if (window.matchMedia('(pointer: fine)').matches && !reducedMotion) {
   };
   animateCursor();
 
-  qsa('a, button, .project-card').forEach((element) => {
+  qsa('a, button, .project-module').forEach((element) => {
     element.addEventListener('pointerenter', () => document.body.classList.add('cursor-hover'));
     element.addEventListener('pointerleave', () => document.body.classList.remove('cursor-hover'));
   });
@@ -3089,101 +3118,143 @@ if (heroScene && !reducedMotion && window.matchMedia('(pointer: fine)').matches)
   });
 }
 
-// Interactive project card deck.
-const deck = qs('.project-deck');
-const cards = qsa('.project-card', deck);
-const descriptions = qsa('.deck-description');
-const projectCurrent = qs('#project-current');
-let drag = null;
+// Bento project directory. Motion communicates hierarchy and click affordance.
+const projectCatalog = qs('.project-catalog');
+const projectModules = qsa('.project-module', projectCatalog);
 
-function relativeIndex(index, activeIndex) {
-  return (index - activeIndex + cards.length) % cards.length;
-}
+if (projectCatalog && projectModules.length) {
+  const catalogHeadItems = qsa('.project-catalog-head > *', projectCatalog);
+  let catalogHasEntered = false;
 
-function renderDeck(animate = true) {
-  cards.forEach((card, index) => {
-    const relative = relativeIndex(index, state.activeProject);
-    const positions = [
-      { x: 0, y: 0, r: 0, s: 1, z: 8, opacity: 1 },
-      { x: 34, y: 24, r: 4.4, s: 0.965, z: 7, opacity: 1 },
-      { x: 61, y: 43, r: 8.4, s: 0.93, z: 6, opacity: 0.96 },
-      { x: -30, y: 36, r: -5.2, s: 0.91, z: 5, opacity: 0.92 },
-    ];
-    const position = positions[relative];
-    card.classList.toggle('is-active', relative === 0);
-    card.setAttribute('aria-hidden', relative === 0 ? 'false' : 'true');
-    card.style.zIndex = position.z;
-    card.style.opacity = position.opacity;
-    card.style.setProperty('--offset-x', `${position.x}px`);
-    card.style.setProperty('--offset-y', `${position.y}px`);
-    card.style.setProperty('--rotation', `${position.r}deg`);
-    card.style.setProperty('--scale', position.s);
+  function revealProjectCatalog() {
+    if (catalogHasEntered || reducedMotion) return;
+    catalogHasEntered = true;
 
-    const fanPositions = [
-      { x: -11, y: -5, r: -1 },
-      { x: 82, y: 35, r: 8 },
-      { x: 139, y: 72, r: 14 },
-      { x: -81, y: 55, r: -10 },
-    ];
-    card.style.setProperty('--fan-x', `${fanPositions[relative].x}px`);
-    card.style.setProperty('--fan-y', `${fanPositions[relative].y}px`);
-    card.style.setProperty('--fan-r', `${fanPositions[relative].r}deg`);
-    if (!animate) card.style.transition = 'none';
-  });
+    if (gsapEngine) {
+      gsapEngine.timeline({
+        defaults: { duration: 0.68, ease: 'power3.out' },
+      })
+        .fromTo(
+          catalogHeadItems,
+          { autoAlpha: 0, y: 24 },
+          { autoAlpha: 1, y: 0, stagger: 0.08 },
+          0
+        )
+        .fromTo(
+          projectModules,
+          {
+            autoAlpha: 0,
+            y: 54,
+            scale: 0.9,
+            rotation: (index) => [-1.6, 1.4, -1.2, 1.1][index] || 0,
+          },
+          {
+            autoAlpha: 1,
+            y: 0,
+            scale: 1,
+            rotation: 0,
+            duration: 1.08,
+            ease: 'elastic.out(1, 0.48)',
+            stagger: 0.09,
+          },
+          0.08
+        );
+      return;
+    }
 
-  descriptions.forEach((description, index) => description.classList.toggle('active', index === state.activeProject));
-  projectCurrent.textContent = String(state.activeProject + 1).padStart(2, '0');
+    catalogHeadItems.forEach((item, index) => {
+      const animation = item.animate(
+        [
+          { opacity: 0, transform: 'translateY(24px)' },
+          { opacity: 1, transform: 'translateY(0)' },
+        ],
+        {
+          duration: 620,
+          delay: index * 80,
+          easing: 'cubic-bezier(.16, 1, .3, 1)',
+          fill: 'both',
+        }
+      );
+      animation.finished.then(() => animation.cancel()).catch(() => undefined);
+    });
 
-  if (!animate) {
-    requestAnimationFrame(() => cards.forEach((card) => (card.style.transition = '')));
+    projectModules.forEach((module, index) => {
+      const startRotation = [-1.6, 1.4, -1.2, 1.1][index] || 0;
+      const animation = module.animate(
+        [
+          {
+            opacity: 0,
+            transform: `translateY(54px) scale(.9) rotate(${startRotation}deg)`,
+          },
+          { opacity: 1, transform: 'translateY(0) scale(1) rotate(0)' },
+        ],
+        {
+          duration: 980,
+          delay: 80 + index * 90,
+          easing: 'cubic-bezier(.18, 1.35, .28, 1)',
+          fill: 'both',
+        }
+      );
+      animation.finished.then(() => animation.cancel()).catch(() => undefined);
+    });
+  }
+
+  if (!reducedMotion) {
+    const catalogObserver = new IntersectionObserver(
+      (entries) => {
+        if (entries.some((entry) => entry.isIntersecting)) {
+          revealProjectCatalog();
+          catalogObserver.disconnect();
+        }
+      },
+      { threshold: 0.18 }
+    );
+    catalogObserver.observe(projectCatalog);
+  }
+
+  if (gsapEngine && window.matchMedia('(pointer: fine)').matches && !reducedMotion) {
+    projectModules.forEach((module) => {
+      const visual = qs('.project-module-visual', module);
+      const tilt = Number(module.dataset.moduleTilt || 0);
+
+      module.addEventListener('pointerenter', () => {
+        gsapEngine.to(module, {
+          y: -10,
+          scale: 1.012,
+          rotation: tilt,
+          duration: 0.55,
+          ease: 'back.out(1.7)',
+          overwrite: 'auto',
+        });
+        gsapEngine.to(visual, {
+          y: -5,
+          scale: 1.035,
+          duration: 0.75,
+          ease: 'power3.out',
+          overwrite: 'auto',
+        });
+      });
+
+      module.addEventListener('pointerleave', () => {
+        gsapEngine.to(module, {
+          y: 0,
+          scale: 1,
+          rotation: 0,
+          duration: 0.7,
+          ease: 'elastic.out(1, 0.5)',
+          overwrite: 'auto',
+        });
+        gsapEngine.to(visual, {
+          y: 0,
+          scale: 1,
+          duration: 0.65,
+          ease: 'power3.out',
+          overwrite: 'auto',
+        });
+      });
+    });
   }
 }
-
-function changeProject(direction) {
-  state.activeProject = (state.activeProject + direction + cards.length) % cards.length;
-  renderDeck();
-  playTone(direction > 0 ? 420 : 350, 0.06);
-}
-
-qs('.deck-next').addEventListener('click', () => changeProject(1));
-qs('.deck-prev').addEventListener('click', () => changeProject(-1));
-
-deck.addEventListener('keydown', (event) => {
-  if (event.key === 'ArrowRight') changeProject(1);
-  if (event.key === 'ArrowLeft') changeProject(-1);
-});
-
-deck.addEventListener('pointerdown', (event) => {
-  const activeCard = qs('.project-card.is-active', deck);
-  if (!activeCard) return;
-  drag = { card: activeCard, startX: event.clientX, currentX: event.clientX };
-  activeCard.classList.add('dragging');
-  activeCard.setPointerCapture(event.pointerId);
-});
-
-deck.addEventListener('pointermove', (event) => {
-  if (!drag) return;
-  drag.currentX = event.clientX;
-  const delta = drag.currentX - drag.startX;
-  drag.card.style.transform = `translate3d(${delta}px, ${Math.abs(delta) * 0.035}px, 0) rotate(${delta * 0.025}deg) scale(.99)`;
-});
-
-function finishDrag(event) {
-  if (!drag) return;
-  const delta = drag.currentX - drag.startX;
-  drag.card.classList.remove('dragging');
-  drag.card.style.transform = '';
-  if (Math.abs(delta) > 75) changeProject(delta < 0 ? 1 : -1);
-  else renderDeck();
-  if (event.pointerId !== undefined && drag.card.hasPointerCapture(event.pointerId)) {
-    drag.card.releasePointerCapture(event.pointerId);
-  }
-  drag = null;
-}
-
-deck.addEventListener('pointerup', finishDrag);
-deck.addEventListener('pointercancel', finishDrag);
-renderDeck(false);
 
 // Optional sound feedback. It never starts before explicit user action.
 const soundToggle = qs('.sound-toggle');
