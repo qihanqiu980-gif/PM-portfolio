@@ -24,6 +24,15 @@
   --radius: 32px;
   --header-height: 108px;
   --ease: cubic-bezier(0.22, 1, 0.36, 1);
+  --space-2xs: 4px;
+  --space-xs: 8px;
+  --space-sm: 12px;
+  --space-md: 16px;
+  --space-lg: 24px;
+  --space-xl: 32px;
+  --space-2xl: 48px;
+  --space-3xl: 64px;
+  --space-4xl: 96px;
   --mono: 'SFMono-Regular', 'Roboto Mono', Menlo, Consolas, monospace;
   --sans: 'Avenir Next', 'Helvetica Neue', 'PingFang SC', 'Microsoft YaHei', system-ui, sans-serif;
 }
@@ -1257,8 +1266,8 @@ body.is-page-transitioning { overflow: hidden; }
 
 .projects {
   position: relative;
-  min-height: 1100px;
-  padding: 140px clamp(28px, 7vw, 128px) 150px;
+  min-height: auto;
+  padding: var(--space-4xl) clamp(var(--space-lg), 3.5vw, var(--space-3xl));
   overflow: hidden;
 }
 
@@ -1404,9 +1413,10 @@ body.is-page-transitioning { overflow: hidden; }
 .project-catalog {
   position: relative;
   z-index: 3;
-  max-width: 1450px;
-  margin: 58px auto 0;
-  padding: clamp(20px, 2.2vw, 34px);
+  width: min(84vw, 2048px);
+  max-width: none;
+  margin: var(--space-3xl) auto 0;
+  padding: clamp(var(--space-md), 1.8vw, var(--space-xl));
   border: 1px solid rgba(36, 33, 29, 0.13);
   border-radius: 30px;
   background: rgba(255, 255, 255, 0.82);
@@ -1416,19 +1426,25 @@ body.is-page-transitioning { overflow: hidden; }
 
 .project-catalog-head {
   display: grid;
-  grid-template-columns: minmax(0, 1fr) minmax(280px, 0.55fr);
-  align-items: end;
-  gap: 50px;
-  padding: clamp(16px, 2.4vw, 32px) clamp(8px, 1vw, 14px) clamp(32px, 4vw, 58px);
+  grid-template-columns: minmax(0, 1fr);
+  align-items: start;
+  gap: var(--space-lg);
+  padding: var(--space-xl) var(--space-md) var(--space-2xl);
+}
+
+.project-catalog-head > div {
+  display: grid;
+  gap: var(--space-md);
 }
 
 .project-catalog-head h2 {
-  max-width: 850px;
+  max-width: 900px;
   margin: 0;
-  font-size: clamp(52px, 6.8vw, 112px);
+  font-size: clamp(46px, 4.3vw, 80px);
   font-weight: 800;
-  line-height: 0.86;
-  letter-spacing: -0.075em;
+  line-height: 0.92;
+  letter-spacing: -0.04em;
+  text-wrap: balance;
 }
 
 .project-catalog-head h2 em {
@@ -1437,22 +1453,23 @@ body.is-page-transitioning { overflow: hidden; }
   color: var(--orange);
   font-family: inherit;
   font-weight: 500;
-  line-height: 1.05;
+  line-height: 1.08;
 }
 
 .project-catalog-head p {
-  max-width: 430px;
-  margin: 0 0 4px;
+  max-width: 62ch;
+  margin: 0;
   color: var(--muted);
-  font-size: 14px;
-  line-height: 1.85;
+  font-size: clamp(17px, 1vw, 20px);
+  line-height: 1.75;
+  text-wrap: pretty;
 }
 
 .project-catalog-grid {
   display: grid;
-  grid-template-columns: 1.28fr 0.92fr 0.8fr;
-  grid-template-rows: minmax(330px, 38vw) minmax(285px, 31vw);
-  gap: 15px;
+  grid-template-columns: 1.2fr 0.9fr 0.9fr;
+  grid-template-rows: clamp(480px, 34vw, 620px) clamp(420px, 28vw, 520px);
+  gap: var(--space-md);
 }
 
 .project-module {
@@ -1461,7 +1478,7 @@ body.is-page-transitioning { overflow: hidden; }
   display: flex;
   min-width: 0;
   min-height: 0;
-  padding: clamp(22px, 2.5vw, 38px);
+  padding: clamp(var(--space-lg), 2.4vw, var(--space-2xl));
   color: #fff;
   border: 1px solid rgba(36, 33, 29, 0.12);
   border-radius: 22px;
@@ -1470,6 +1487,7 @@ body.is-page-transitioning { overflow: hidden; }
   text-decoration: none;
   box-shadow: 0 18px 45px rgba(55, 36, 16, 0.1);
   transform: translateZ(0);
+  will-change: transform;
   transition:
     transform 0.55s var(--ease),
     box-shadow 0.55s var(--ease),
@@ -1533,6 +1551,7 @@ body.is-page-transitioning { overflow: hidden; }
   inset: 0;
   z-index: 0;
   transition: transform 0.75s var(--ease), filter 0.5s ease;
+  will-change: transform;
 }
 
 .project-module:hover .project-module-visual { transform: scale(1.035) translateY(-4px); }
@@ -1543,46 +1562,54 @@ body.is-page-transitioning { overflow: hidden; }
   display: flex;
   flex-direction: column;
   align-self: flex-end;
-  width: min(100%, 570px);
+  width: min(100%, 680px);
 }
 
 .project-module-copy small {
-  margin-bottom: 12px;
-  font: 500 9px/1.3 var(--mono);
-  letter-spacing: 0.1em;
-  opacity: 0.76;
+  margin-bottom: var(--space-sm);
+  font: 600 clamp(10px, 0.72vw, 12px)/1.4 var(--mono);
+  letter-spacing: 0.08em;
+  opacity: 0.84;
 }
 
 .project-module-copy h3 {
-  max-width: 12ch;
+  max-width: 13ch;
   margin: 0;
-  font-size: clamp(30px, 3.4vw, 56px);
-  line-height: 0.95;
-  letter-spacing: -0.055em;
+  font-size: clamp(36px, 3vw, 62px);
+  line-height: 0.98;
+  letter-spacing: -0.04em;
+  text-wrap: balance;
 }
 
 .project-module-copy p {
-  max-width: 46ch;
-  margin: 15px 0 0;
-  font-size: 12px;
+  max-width: 48ch;
+  margin: var(--space-md) 0 0;
+  font-size: clamp(15px, 1vw, 18px);
   line-height: 1.7;
-  opacity: 0.82;
+  opacity: 0.9;
+  text-wrap: pretty;
 }
 
 .project-module-open {
   display: inline-flex;
   align-items: center;
-  gap: 10px;
-  margin-top: 22px;
-  font: 500 10px/1 var(--mono);
-  letter-spacing: 0.06em;
+  gap: var(--space-sm);
+  width: fit-content;
+  min-height: 46px;
+  margin-top: var(--space-lg);
+  padding: 6px var(--space-xs) 6px 14px;
+  border: 1px solid currentColor;
+  border-radius: 999px;
+  font: 600 clamp(14px, 0.82vw, 15px)/1 var(--mono);
+  letter-spacing: 0.04em;
+  white-space: nowrap;
 }
 
 .project-module-open i {
   display: grid;
   place-items: center;
-  width: 28px;
-  height: 28px;
+  width: 32px;
+  height: 32px;
   border: 1px solid currentColor;
   border-radius: 50%;
   font-style: normal;
@@ -1624,20 +1651,21 @@ body.is-page-transitioning { overflow: hidden; }
 .project-catalog-note {
   display: flex;
   justify-content: space-between;
-  gap: 24px;
-  padding: 22px 10px 2px;
+  gap: var(--space-lg);
+  padding: var(--space-lg) var(--space-md) var(--space-2xs);
   color: var(--muted);
-  font: 400 9px/1.6 var(--mono);
+  font: 500 11px/1.6 var(--mono);
   letter-spacing: 0.05em;
 }
 
 @media (max-width: 900px) {
-  .project-catalog { margin-top: 48px; border-radius: 24px; }
-  .project-catalog-head { grid-template-columns: 1fr; gap: 24px; }
+  .project-catalog { width: 100%; margin-top: var(--space-2xl); border-radius: 24px; }
+  .project-catalog-head { gap: var(--space-md); padding: var(--space-xl) var(--space-md) var(--space-2xl); }
+  .project-catalog-head h2 { font-size: clamp(44px, 8vw, 72px); }
   .project-catalog-head p { max-width: 560px; }
   .project-catalog-grid {
     grid-template-columns: 1fr 1fr;
-    grid-template-rows: 390px 320px 340px;
+    grid-template-rows: minmax(420px, 52vw) minmax(380px, 48vw) minmax(420px, 50vw);
   }
   .project-module-cloud { grid-column: 1 / 3; grid-row: 1; }
   .project-module-kwai { grid-column: 1; grid-row: 2; }
@@ -1645,18 +1673,22 @@ body.is-page-transitioning { overflow: hidden; }
   .project-module-vip { grid-column: 1 / 3; grid-row: 3; }
 }
 
-@media (max-width: 620px) {
-  .project-catalog { margin-inline: -4px; padding: 9px; border-radius: 20px; }
-  .project-catalog-head { padding: 28px 14px 36px; }
-  .project-catalog-head h2 { font-size: 50px; }
-  .project-catalog-grid { display: flex; flex-direction: column; }
-  .project-module { min-height: 330px; padding: 24px; }
-  .project-module-cloud { min-height: 390px; }
-  .project-module-copy h3 { font-size: 36px; }
-  .project-module-copy p { max-width: 34ch; }
+@media (max-width: 640px) {
+  .project-catalog { margin-inline: 0; padding: var(--space-xs); border-radius: 20px; }
+  .project-catalog-head { padding: var(--space-xl) var(--space-md) var(--space-2xl); }
+  .project-catalog-head h2 { font-size: clamp(42px, 12vw, 54px); }
+  .project-catalog-head p { font-size: 16px; }
+  .project-catalog-grid { display: flex; flex-direction: column; gap: var(--space-sm); }
+  .project-module { min-height: 360px; padding: var(--space-lg); }
+  .project-module-cloud { min-height: 440px; }
+  .project-module-vip { min-height: 380px; }
+  .project-module-copy small { font-size: 11px; }
+  .project-module-copy h3 { font-size: clamp(34px, 10vw, 42px); }
+  .project-module-copy p { max-width: 34ch; font-size: 15px; }
+  .project-module-open { font-size: 14px; }
   .project-module-cloud .art-window { width: 48%; }
   .project-module-vip .motion-word { left: 67%; }
-  .project-catalog-note { flex-direction: column; gap: 5px; padding: 18px 12px 8px; }
+  .project-catalog-note { flex-direction: column; gap: var(--space-xs); padding: var(--space-md) var(--space-sm) var(--space-xs); font-size: 10px; }
 }
 
 .principles {
@@ -3132,11 +3164,11 @@ if (projectCatalog && projectModules.length) {
 
     if (gsapEngine) {
       gsapEngine.timeline({
-        defaults: { duration: 0.68, ease: 'power3.out' },
+        defaults: { duration: 0.62, ease: 'power3.out' },
       })
         .fromTo(
           catalogHeadItems,
-          { autoAlpha: 0, y: 24 },
+          { autoAlpha: 0, y: 20 },
           { autoAlpha: 1, y: 0, stagger: 0.08 },
           0
         )
@@ -3144,18 +3176,18 @@ if (projectCatalog && projectModules.length) {
           projectModules,
           {
             autoAlpha: 0,
-            y: 54,
-            scale: 0.9,
-            rotation: (index) => [-1.6, 1.4, -1.2, 1.1][index] || 0,
+            y: 44,
+            scale: 0.94,
+            rotation: (index) => [-0.8, 0.8, -0.7, 0.7][index] || 0,
           },
           {
             autoAlpha: 1,
             y: 0,
             scale: 1,
             rotation: 0,
-            duration: 1.08,
-            ease: 'elastic.out(1, 0.48)',
-            stagger: 0.09,
+            duration: 1,
+            ease: 'elastic.out(1, 0.56)',
+            stagger: 0.08,
           },
           0.08
         );
@@ -3179,18 +3211,18 @@ if (projectCatalog && projectModules.length) {
     });
 
     projectModules.forEach((module, index) => {
-      const startRotation = [-1.6, 1.4, -1.2, 1.1][index] || 0;
+      const startRotation = [-0.8, 0.8, -0.7, 0.7][index] || 0;
       const animation = module.animate(
         [
           {
             opacity: 0,
-            transform: `translateY(54px) scale(.9) rotate(${startRotation}deg)`,
+            transform: `translateY(44px) scale(.94) rotate(${startRotation}deg)`,
           },
           { opacity: 1, transform: 'translateY(0) scale(1) rotate(0)' },
         ],
         {
-          duration: 980,
-          delay: 80 + index * 90,
+          duration: 920,
+          delay: 80 + index * 80,
           easing: 'cubic-bezier(.18, 1.35, .28, 1)',
           fill: 'both',
         }
@@ -3215,42 +3247,39 @@ if (projectCatalog && projectModules.length) {
   if (gsapEngine && window.matchMedia('(pointer: fine)').matches && !reducedMotion) {
     projectModules.forEach((module) => {
       const visual = qs('.project-module-visual', module);
+      const action = qs('.project-module-open', module);
       const tilt = Number(module.dataset.moduleTilt || 0);
+      const hoverTimeline = gsapEngine.timeline({ paused: true });
 
-      module.addEventListener('pointerenter', () => {
-        gsapEngine.to(module, {
-          y: -10,
-          scale: 1.012,
+      hoverTimeline
+        .to(module, {
+          y: -8,
+          scale: 1.008,
           rotation: tilt,
-          duration: 0.55,
-          ease: 'back.out(1.7)',
+          duration: 0.48,
+          ease: 'back.out(1.45)',
           overwrite: 'auto',
-        });
-        gsapEngine.to(visual, {
-          y: -5,
-          scale: 1.035,
-          duration: 0.75,
+        }, 0)
+        .to(visual, {
+          y: -4,
+          scale: 1.03,
+          duration: 0.62,
           ease: 'power3.out',
           overwrite: 'auto',
-        });
+        }, 0)
+        .to(action, {
+          x: 4,
+          duration: 0.42,
+          ease: 'power3.out',
+          overwrite: 'auto',
+        }, 0.05);
+
+      module.addEventListener('pointerenter', () => {
+        hoverTimeline.play();
       });
 
       module.addEventListener('pointerleave', () => {
-        gsapEngine.to(module, {
-          y: 0,
-          scale: 1,
-          rotation: 0,
-          duration: 0.7,
-          ease: 'elastic.out(1, 0.5)',
-          overwrite: 'auto',
-        });
-        gsapEngine.to(visual, {
-          y: 0,
-          scale: 1,
-          duration: 0.65,
-          ease: 'power3.out',
-          overwrite: 'auto',
-        });
+        hoverTimeline.reverse();
       });
     });
   }
