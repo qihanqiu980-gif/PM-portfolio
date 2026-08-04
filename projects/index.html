@@ -2,7 +2,7 @@
 <html lang="zh-CN">
   <head>
     <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
     <meta name="description" content="邱琪涵的产品经理实习项目详情。" />
     <meta name="theme-color" content="#f4efe6" />
     <title>快影云空间升级 | 邱琪涵产品作品集</title>
@@ -494,6 +494,155 @@ button, a { -webkit-tap-highlight-color: transparent; }
   .case-footer { grid-template-columns: 1fr; padding-inline: 20px; }
   .case-switch { flex-direction: column; align-items: flex-start; }
   .case-footer-brand { justify-self: start; }
+}
+
+/* Shared case-page viewport rhythm and density. */
+:root {
+  --case-header-height: 72px;
+  --case-gutter: clamp(24px, 5vw, 80px);
+}
+
+.case-header {
+  min-height: var(--case-header-height);
+  gap: clamp(18px, 2.5vw, 32px);
+  padding: 8px var(--case-gutter);
+}
+
+.case-main,
+.case-main > section,
+.case-hero > *,
+.metrics-heading > * {
+  min-width: 0;
+}
+
+.case-hero {
+  grid-template-columns: minmax(360px, .84fr) minmax(460px, 1.16fr);
+  gap: clamp(38px, 5vw, 82px);
+  min-height: calc(100svh - var(--case-header-height));
+  min-height: calc(100dvh - var(--case-header-height));
+  padding: clamp(28px, 5vh, 48px) var(--case-gutter);
+}
+
+.case-kicker { margin-bottom: clamp(14px, 2.5vh, 22px); }
+.case-title {
+  font-size: clamp(54px, min(6.7vw, 12vh), 104px);
+  line-height: .88;
+  letter-spacing: -.065em;
+  text-wrap: balance;
+  overflow-wrap: anywhere;
+}
+.case-lead { margin-top: clamp(18px, 3vh, 26px); font-size: clamp(14px, 1.1vw, 16px); line-height: 1.65; }
+.case-role { margin-top: clamp(16px, 2.5vh, 24px); }
+
+.case-visual {
+  width: 100%;
+  height: min(70vh, 650px);
+  min-height: 0;
+  max-height: none;
+  border-radius: 26px;
+}
+.visual-metric { padding: clamp(16px, 2vw, 21px); }
+
+.overview-block { min-height: 0; padding: clamp(30px, 4vw, 52px); }
+.overview-block h2 { margin: clamp(18px, 3vh, 26px) 0 14px; font-size: clamp(28px, 2.7vw, 42px); }
+.overview-block p { font-size: 13px; line-height: 1.7; }
+
+.case-process {
+  grid-template-columns: minmax(260px, .58fr) minmax(0, 1.42fr);
+  gap: clamp(42px, 7vw, 110px);
+  min-height: min(100dvh, 720px);
+  padding: clamp(58px, 8vh, 92px) var(--case-gutter);
+}
+.process-copy h2,
+.metrics-heading h2 { font-size: clamp(46px, min(5.6vw, 9vh), 82px); }
+.process-list { gap: 8px; }
+.process-item { gap: 14px; padding: clamp(17px, 2.5vh, 22px) 0; }
+.process-item p { font-size: clamp(16px, 1.45vw, 21px); line-height: 1.5; }
+
+.case-metrics { min-height: min(100dvh, 760px); padding: clamp(58px, 8vh, 92px) var(--case-gutter); }
+.metrics-heading { margin-bottom: clamp(38px, 6vh, 56px); }
+.metric-card { min-height: 190px; padding: clamp(28px, 3vw, 36px) clamp(22px, 2.4vw, 30px); }
+.metric-card strong { margin-bottom: 20px; font-size: clamp(40px, min(4.6vw, 8vh), 68px); }
+
+.case-footer { padding: 38px var(--case-gutter); }
+
+@media (min-width: 1051px) and (max-height: 780px) {
+  .case-hero { padding-block: 24px; }
+  .case-title { font-size: clamp(52px, min(6.2vw, 10.5vh), 82px); }
+  .case-lead { margin-top: 16px; line-height: 1.55; }
+  .case-role { margin-top: 14px; }
+  .case-visual { height: min(69vh, 540px); }
+  .case-process { padding-block: 52px; }
+  .case-metrics { padding-block: 52px; }
+}
+
+@media (max-width: 1050px) {
+  .case-hero {
+    grid-template-columns: minmax(0, 1fr);
+    min-height: auto;
+    padding-block: 54px 70px;
+  }
+  .case-copy { max-width: 720px; }
+  .case-visual { height: min(68vw, 620px); }
+  .case-process { grid-template-columns: 1fr; min-height: 0; }
+}
+
+@media (max-width: 720px) {
+  :root { --case-header-height: 104px; --case-gutter: 20px; }
+  body { padding-bottom: env(safe-area-inset-bottom); }
+  .case-header {
+    min-height: var(--case-header-height);
+    gap: 8px 12px;
+    padding: max(8px, env(safe-area-inset-top)) 16px 8px;
+  }
+  .back-link i,
+  .contact-link i { width: 36px; height: 36px; }
+  .case-nav { gap: 2px; padding-bottom: 0; scrollbar-width: none; }
+  .case-nav::-webkit-scrollbar { display: none; }
+  .case-nav a { padding: 8px 11px; font-size: 8px; }
+  .case-hero {
+    gap: 24px;
+    min-height: auto;
+    padding: 28px var(--case-gutter) 38px;
+  }
+  .case-kicker { margin-bottom: 14px; font-size: 9px; }
+  .case-title { font-size: clamp(54px, 15.5vw, 66px); line-height: .9; }
+  .case-lead { margin-top: 18px; font-size: 14px; line-height: 1.62; }
+  .case-role { margin-top: 16px; gap: 6px; }
+  .case-role span { padding: 7px 10px; font-size: 8px; }
+  .case-visual { height: clamp(340px, 90vw, 390px); border-radius: 20px; }
+  .visual-sphere-main { width: 54%; }
+  .visual-ring-a { width: 72%; }
+  .visual-metric { min-width: 50%; padding: 14px; }
+  .visual-metric small { margin-bottom: 9px; }
+  .visual-metric strong { font-size: clamp(34px, 12vw, 48px); }
+  .overview-block { padding: 24px var(--case-gutter); }
+  .overview-block h2 { margin: 12px 0 10px; font-size: 28px; }
+  .overview-block p { font-size: 13px; line-height: 1.62; }
+  .case-process { gap: 34px; padding: 56px var(--case-gutter); }
+  .process-copy h2,
+  .metrics-heading h2 { margin-top: 18px; font-size: 46px; line-height: .92; }
+  .process-item { grid-template-columns: 30px minmax(0, 1fr); gap: 10px; padding: 17px 0; }
+  .process-item p { font-size: 15px; line-height: 1.55; }
+  .case-metrics { min-height: 0; padding: 56px var(--case-gutter); }
+  .metrics-heading { gap: 22px; margin-bottom: 32px; }
+  .metrics-heading p { font-size: 13px; line-height: 1.65; }
+  .metric-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .metric-card,
+  .metric-card:nth-child(2) {
+    min-height: 156px;
+    padding: 22px 17px;
+    border-right: 1px solid rgba(255,255,255,.18);
+    border-bottom: 1px solid rgba(255,255,255,.18);
+  }
+  .metric-card:nth-child(even) { border-right: 0; }
+  .metric-card:last-child:nth-child(odd) { grid-column: 1 / -1; border-right: 0; }
+  .metric-card:nth-last-child(-n + 2):not(:nth-child(odd):last-child) { border-bottom: 0; }
+  .metric-card strong { margin-bottom: 16px; font-size: clamp(36px, 11vw, 46px); }
+  .metric-card span { font-size: 12px; }
+  .case-footer { gap: 24px; padding: 30px var(--case-gutter) max(30px, env(safe-area-inset-bottom)); }
+  .case-switch { width: 100%; flex-direction: row; align-items: stretch; }
+  .case-switch a { flex: 1; justify-content: center; padding-inline: 12px; }
 }
 
 @media (prefers-reduced-motion: reduce) {
