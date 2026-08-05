@@ -500,6 +500,8 @@ button, a { -webkit-tap-highlight-color: transparent; }
 :root {
   --case-header-height: 72px;
   --case-gutter: clamp(24px, 5vw, 80px);
+  --case-panel-height: calc(100svh - var(--case-header-height));
+  --case-panel-height: calc(100dvh - var(--case-header-height));
 }
 
 .case-header {
@@ -513,6 +515,59 @@ button, a { -webkit-tap-highlight-color: transparent; }
 .case-hero > *,
 .metrics-heading > * {
   min-width: 0;
+}
+
+.case-main {
+  position: relative;
+  isolation: isolate;
+  overflow-x: clip;
+}
+
+.case-main > section {
+  position: sticky;
+  top: var(--case-header-height);
+  min-height: var(--case-panel-height);
+  scroll-snap-align: start;
+  scroll-snap-stop: always;
+  transform-origin: 50% 100%;
+  backface-visibility: hidden;
+}
+
+.case-main > section:nth-child(1) { z-index: 1; }
+.case-main > section:nth-child(2) { z-index: 2; }
+.case-main > section:nth-child(3) { z-index: 3; }
+.case-main > section:nth-child(4) { z-index: 4; }
+
+.case-main > section:not(:first-child) {
+  box-shadow: 0 -28px 72px rgba(36, 33, 29, 0.09);
+}
+
+.case-hero,
+.case-process { background: var(--paper); }
+
+.case-overview { align-items: stretch; }
+.overview-block {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.case-process { align-items: center; }
+.case-metrics {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+html.above-beneath-ready {
+  scroll-padding-top: var(--case-header-height);
+  scroll-snap-type: y proximity;
+}
+
+.case-footer {
+  position: relative;
+  z-index: 5;
+  scroll-snap-align: start;
 }
 
 .case-hero {
@@ -589,6 +644,7 @@ button, a { -webkit-tap-highlight-color: transparent; }
 
 @media (max-width: 720px) {
   :root { --case-header-height: 104px; --case-gutter: 20px; }
+  html.above-beneath-ready { scroll-snap-type: y proximity; }
   body { padding-bottom: env(safe-area-inset-bottom); }
   .case-header {
     min-height: var(--case-header-height);
@@ -647,6 +703,14 @@ button, a { -webkit-tap-highlight-color: transparent; }
 
 @media (prefers-reduced-motion: reduce) {
   html { scroll-behavior: auto; }
+  html.above-beneath-ready { scroll-snap-type: none; }
+  .case-main > section {
+    position: relative;
+    top: auto;
+    opacity: 1 !important;
+    visibility: visible !important;
+    transform: none !important;
+  }
   *, *::before, *::after {
     animation-duration: .01ms !important;
     transition-duration: .01ms !important;
@@ -740,9 +804,13 @@ button, a { -webkit-tap-highlight-color: transparent; }
     </footer>
 
     <script src="https://cdn.jsdelivr.net/npm/gsap@3.15.0/dist/gsap.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.15.0/dist/ScrollTrigger.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.15.0/dist/CustomEase.min.js"></script>
     <script>
 const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 const gsapEngine = window.gsap;
+const scrollTriggerEngine = window.ScrollTrigger;
+const customEaseEngine = window.CustomEase;
 
 const projects = {
   'cloud-space': {
@@ -969,6 +1037,61 @@ function animateProject() {
   });
 }
 
+function initSectionTransitions() {
+  document.documentElement.classList.add('above-beneath-ready');
+
+  if (reducedMotion || !gsapEngine || !scrollTriggerEngine) return;
+
+  const plugins = [scrollTriggerEngine];
+  if (customEaseEngine) plugins.push(customEaseEngine);
+  gsapEngine.registerPlugin(...plugins);
+
+  const aboveBeneathEase = customEaseEngine
+    ? customEaseEngine.create('aboveBeneath', '1,0.005,0.33,1')
+    : 'power4.inOut';
+  const panels = qsa('.case-main > section');
+  const motionMedia = gsapEngine.matchMedia();
+
+  motionMedia.add(
+    {
+      isDesktop: '(min-width: 721px)',
+      isCompact: '(max-width: 720px)',
+    },
+    (context) => {
+      const { isDesktop } = context.conditions;
+      const panelScale = isDesktop ? 1.2 : 1.08;
+      const scrubDuration = isDesktop ? 1.6 : 0.8;
+
+      panels.slice(0, -1).forEach((panel, index) => {
+        const nextPanel = panels[index + 1];
+
+        gsapEngine.timeline({
+          defaults: { duration: 1.6, ease: aboveBeneathEase },
+          scrollTrigger: {
+            trigger: nextPanel,
+            start: 'top bottom',
+            end: () => `top ${qs('.case-header').offsetHeight}px`,
+            scrub: scrubDuration,
+            invalidateOnRefresh: true,
+          },
+        }).to(panel, {
+          autoAlpha: 0,
+          scale: panelScale,
+          force3D: true,
+        }, 0);
+      });
+
+      return () => {
+        gsapEngine.set(panels, { clearProps: 'opacity,transform,visibility' });
+      };
+    }
+  );
+
+  const refreshTransitions = () => scrollTriggerEngine.refresh();
+  if (document.fonts?.ready) document.fonts.ready.then(refreshTransitions);
+  else window.addEventListener('load', refreshTransitions, { once: true });
+}
+
 window.addEventListener('hashchange', () => {
   window.scrollTo({ top: 0, behavior: reducedMotion ? 'auto' : 'smooth' });
   renderProject();
@@ -978,7 +1101,11 @@ if (!window.location.hash || !projects[window.location.hash.slice(1)]) {
   history.replaceState(null, '', '#cloud-space');
 }
 renderProject(false);
-window.requestAnimationFrame(() => animateProject());
+initSectionTransitions();
+window.requestAnimationFrame(() => {
+  animateProject();
+  if (scrollTriggerEngine) scrollTriggerEngine.refresh();
+});
     </script>
   </body>
 </html>
