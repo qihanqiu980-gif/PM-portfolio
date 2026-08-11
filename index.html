@@ -2344,6 +2344,936 @@ small,
   font-size: 15px;
 }
 
+/* Dense narrative layout and cinematic work-state reels. */
+body {
+  font-size: 17px;
+}
+
+.brand { font-size: 15px; }
+.brand small { font-size: 15px; line-height: 1.15; }
+.nav-pill a,
+.contact-pill,
+.eyebrow,
+.section-kicker { font-size: 15px; }
+
+.hero {
+  grid-template-columns: minmax(420px, .78fr) minmax(560px, 1.22fr);
+  min-height: clamp(780px, 94dvh, 940px);
+  padding-top: calc(var(--header-height) + 30px);
+  padding-bottom: 38px;
+}
+
+.hero-copy {
+  align-self: center;
+  max-width: 820px;
+  transform: translateY(8px);
+}
+
+.hero-title {
+  margin: 30px 0 28px;
+  font-size: clamp(76px, min(8.3vw, 15.5vh), 140px);
+  letter-spacing: -.04em;
+}
+
+.hero-bottom {
+  grid-template-columns: max-content minmax(280px, 430px) 64px;
+  gap: 20px;
+}
+
+.role-sticker {
+  font-size: 15px;
+}
+
+.hero-bottom p {
+  color: #59534a;
+  font-size: 17px;
+  line-height: 1.65;
+}
+
+.hero-proof-strip {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  max-width: 780px;
+  margin-top: 34px;
+  border-top: 1px solid rgba(36, 33, 29, .16);
+  border-bottom: 1px solid rgba(36, 33, 29, .16);
+}
+
+.hero-proof-strip article {
+  display: grid;
+  grid-template-columns: auto minmax(0, 1fr);
+  align-items: center;
+  gap: 11px;
+  min-width: 0;
+  padding: 17px 18px 17px 0;
+}
+
+.hero-proof-strip article + article {
+  padding-left: 18px;
+  border-left: 1px solid rgba(36, 33, 29, .12);
+}
+
+.hero-proof-strip strong {
+  color: var(--orange);
+  font: 750 24px/1 var(--sans);
+  letter-spacing: -.03em;
+}
+
+.hero-proof-strip span {
+  color: var(--muted);
+  font-size: 15px;
+  line-height: 1.35;
+}
+
+.hero-scene {
+  width: min(57vw, 1060px);
+  min-width: 540px;
+}
+
+.orbit-label-two { display: none; }
+
+.scene-reel-badge {
+  position: absolute;
+  top: 2.5%;
+  right: 2%;
+  z-index: 6;
+  width: min(245px, 31%);
+  padding: 14px 16px 15px;
+  color: #fff;
+  border: 1px solid rgba(255, 255, 255, .18);
+  border-radius: 14px;
+  background: rgba(18, 25, 39, .9);
+  box-shadow: 0 18px 42px rgba(37, 27, 16, .18);
+}
+
+.scene-reel-meta,
+.profile-state-heading {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  font: 600 15px/1.2 var(--mono);
+  letter-spacing: .06em;
+}
+
+.scene-reel-meta span,
+.profile-state-heading span,
+.contact-reel-caption span {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+}
+
+.scene-reel-meta i,
+.profile-state-heading i,
+.contact-reel-caption i {
+  display: block;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: #75dd2f;
+  box-shadow: 0 0 0 5px rgba(117, 221, 47, .12);
+}
+
+.scene-reel-meta b,
+.profile-state-heading b {
+  color: rgba(255, 255, 255, .56);
+  font-weight: 600;
+}
+
+.scene-reel-badge > strong {
+  display: block;
+  margin-top: 13px;
+  font-size: clamp(23px, 2.1vw, 32px);
+  line-height: 1;
+  letter-spacing: -.03em;
+}
+
+.scene-reel-badge > small {
+  display: block;
+  margin-top: 7px;
+  color: rgba(255, 255, 255, .68);
+  font-size: 15px;
+  line-height: 1.35;
+}
+
+.scene-reel-progress,
+.profile-state-progress {
+  height: 3px;
+  margin-top: 13px;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, .16);
+  overflow: hidden;
+}
+
+.scene-reel-progress i,
+.profile-state-progress i {
+  display: block;
+  width: 100%;
+  height: 100%;
+  border-radius: inherit;
+  background: var(--orange);
+  transform: scaleX(0);
+  transform-origin: left center;
+}
+
+.about {
+  min-height: auto;
+  padding: 94px var(--page-gutter) 0;
+}
+
+.about-grid {
+  flex: none;
+  grid-template-columns: minmax(390px, .8fr) minmax(520px, 1.2fr);
+  align-items: start;
+  gap: clamp(44px, 5vw, 82px);
+  width: min(92vw, 1800px);
+  max-width: none;
+  min-height: 0;
+  margin-top: 30px;
+}
+
+.about-console {
+  position: sticky;
+  top: 104px;
+  height: clamp(500px, 62vh, 590px);
+}
+
+.console-topbar { font-size: 15px; }
+.console-data { font-size: 15px; }
+.console-data p { padding: 10px 12px; }
+
+.big-copy {
+  font-size: clamp(42px, 3.2vw, 58px);
+  line-height: 1.08;
+  letter-spacing: -.035em;
+}
+
+.profile-state {
+  margin-top: 24px;
+  padding: 18px 20px;
+  color: #fff;
+  border: 1px solid rgba(85, 224, 255, .28);
+  border-radius: 14px;
+  background: rgba(0, 20, 67, .34);
+}
+
+.profile-state-heading {
+  color: rgba(255, 255, 255, .62);
+}
+
+.profile-state > strong {
+  display: block;
+  margin-top: 13px;
+  color: var(--cyan);
+  font-size: clamp(25px, 2.2vw, 34px);
+  line-height: 1;
+  letter-spacing: -.03em;
+}
+
+.profile-state > p {
+  margin: 8px 0 0;
+  color: rgba(255, 255, 255, .72);
+  font-size: 16px;
+  line-height: 1.5;
+}
+
+.profile-state-progress i { background: var(--cyan); }
+
+.about-detail {
+  max-width: 70ch;
+  margin: 24px 0;
+  font-size: 17px;
+  line-height: 1.75;
+}
+
+.about-proof-row {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  margin-bottom: 22px;
+  border-top: 1px solid rgba(255, 255, 255, .17);
+  border-bottom: 1px solid rgba(255, 255, 255, .17);
+}
+
+.about-proof-row > div {
+  min-width: 0;
+  padding: 16px 16px 16px 0;
+}
+
+.about-proof-row > div + div {
+  padding-left: 16px;
+  border-left: 1px solid rgba(255, 255, 255, .17);
+}
+
+.about-proof-row span,
+.about-proof-row strong {
+  display: block;
+}
+
+.about-proof-row span {
+  color: rgba(255, 255, 255, .52);
+  font: 600 15px/1.2 var(--mono);
+}
+
+.about-proof-row strong {
+  margin-top: 8px;
+  color: #fff;
+  font-size: 16px;
+  line-height: 1.4;
+}
+
+.capability-list > div {
+  position: relative;
+  grid-template-columns: 42px minmax(0, 1fr) auto;
+  padding: 15px 14px;
+  transition: color .35s ease, background .35s ease, transform .35s var(--ease);
+}
+
+.capability-list > div.is-active {
+  color: var(--blue);
+  background: var(--cyan);
+  transform: translateX(8px);
+}
+
+.capability-list > div.is-active span,
+.capability-list > div.is-active small {
+  color: rgba(10, 49, 128, .68);
+}
+
+.capability-list span { font-size: 15px; }
+.capability-list strong { font-size: 18px; }
+.capability-list small { font-size: 15px; }
+
+.education-strip {
+  width: min(92vw, 1800px);
+  max-width: none;
+  margin-top: 34px;
+}
+
+.education-strip article {
+  padding: 24px 28px;
+}
+
+.education-strip span,
+.education-strip p { font-size: 15px; }
+.education-strip h3 { margin-top: 15px; font-size: 27px; }
+.education-score h3 { font-size: 40px; }
+
+.marquee {
+  margin-top: 30px;
+}
+
+.principles.experience {
+  display: block;
+  min-height: auto;
+  padding: 78px 0 88px;
+  border: 0;
+  background: var(--paper-2);
+  overflow: hidden;
+}
+
+.experience-heading {
+  display: grid;
+  grid-template-columns: minmax(300px, .72fr) minmax(560px, 1.28fr);
+  align-items: end;
+  gap: clamp(42px, 6vw, 96px);
+  min-height: 0;
+  padding: 0 var(--page-gutter) 42px;
+  border-bottom: 0;
+}
+
+.experience-heading-copy > p {
+  max-width: 45ch;
+  margin: 28px 0 0;
+  color: var(--muted);
+  font-size: 17px;
+  line-height: 1.7;
+}
+
+.experience-heading-main {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  align-items: end;
+  gap: 28px;
+}
+
+.experience-heading h2 {
+  justify-self: start;
+  font-size: clamp(58px, min(6.4vw, 10vh), 98px);
+  letter-spacing: -.04em;
+}
+
+.experience-controls {
+  display: flex;
+  gap: 10px;
+}
+
+.experience-controls button {
+  display: grid;
+  place-items: center;
+  width: 52px;
+  height: 52px;
+  padding: 0;
+  border: 1px solid rgba(36, 33, 29, .18);
+  border-radius: 50%;
+  background: rgba(255, 255, 255, .62);
+  transition: color .25s ease, background .25s ease, transform .3s var(--ease);
+}
+
+.experience-controls button:not(:disabled):hover {
+  color: #fff;
+  background: var(--orange);
+  transform: translateY(-3px);
+}
+
+.experience-controls button:disabled {
+  cursor: not-allowed;
+  opacity: .34;
+}
+
+.experience-controls svg {
+  width: 22px;
+  fill: none;
+  stroke: currentColor;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  stroke-width: 1.8;
+}
+
+.experience-track {
+  display: flex;
+  gap: 20px;
+  padding: 0 var(--page-gutter) 24px;
+  overflow-x: auto;
+  overscroll-behavior-inline: contain;
+  scroll-behavior: smooth;
+  scroll-snap-type: x mandatory;
+  scrollbar-width: none;
+}
+
+.experience-track::-webkit-scrollbar { display: none; }
+
+.experience-card {
+  flex: 0 0 clamp(380px, 31vw, 520px);
+  min-width: 0;
+  color: var(--ink);
+  border-radius: 16px;
+  background: rgba(255, 251, 244, .96);
+  box-shadow: 0 24px 64px rgba(69, 49, 25, .12);
+  overflow: hidden;
+  scroll-snap-align: start;
+  transition: transform .45s var(--ease), box-shadow .45s ease;
+}
+
+.experience-card:hover {
+  box-shadow: 0 34px 82px rgba(69, 49, 25, .18);
+  transform: translateY(-8px);
+}
+
+.experience-card-visual {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  min-height: 220px;
+  padding: 24px;
+  overflow: hidden;
+}
+
+.experience-card-visual::before,
+.experience-card-visual::after {
+  position: absolute;
+  content: '';
+  pointer-events: none;
+}
+
+.experience-visual-kuaishou {
+  color: #fff;
+  background: radial-gradient(circle at 76% 20%, #ffc85c 0 8%, transparent 8.5%), linear-gradient(140deg, #9c2f00, #f16800 56%, #ffad26);
+}
+
+.experience-visual-kuaishou::before {
+  inset: 0;
+  background-image: linear-gradient(rgba(255,255,255,.08) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,.08) 1px, transparent 1px);
+  background-size: 30px 30px;
+}
+
+.experience-visual-vip {
+  color: #181818;
+  background: linear-gradient(135deg, #ffcf8d, #ff9fbd 44%, #ff7d87);
+}
+
+.experience-visual-vip::before {
+  top: -24%;
+  right: -8%;
+  width: 70%;
+  aspect-ratio: 1;
+  border-radius: 50%;
+  background: rgba(115, 86, 255, .34);
+}
+
+.experience-visual-vip::after {
+  right: 18%;
+  bottom: -44%;
+  width: 64%;
+  aspect-ratio: 1;
+  border-radius: 43% 57% 61% 39%;
+  background: rgba(255, 50, 96, .48);
+  transform: rotate(24deg);
+}
+
+.experience-visual-yy {
+  color: #fff;
+  background: radial-gradient(circle at 76% 20%, #145fc6, #082864 46%, #03183e);
+}
+
+.experience-visual-yy::before {
+  inset: 0;
+  background-image: linear-gradient(rgba(87, 212, 255, .08) 1px, transparent 1px), linear-gradient(90deg, rgba(87, 212, 255, .08) 1px, transparent 1px);
+  background-size: 28px 28px;
+}
+
+.experience-visual-label {
+  position: absolute;
+  top: 22px;
+  left: 24px;
+  z-index: 2;
+  font: 650 15px/1.2 var(--mono);
+  letter-spacing: .07em;
+}
+
+.experience-card-visual > strong {
+  position: relative;
+  z-index: 2;
+  font-size: clamp(64px, 6vw, 104px);
+  line-height: .78;
+  letter-spacing: -.04em;
+}
+
+.experience-visual-pills {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: 22px;
+}
+
+.experience-visual-pills i {
+  padding: 8px 10px;
+  border: 1px solid currentColor;
+  border-radius: 999px;
+  font: 650 15px/1 var(--mono);
+  font-style: normal;
+}
+
+.experience-visual-bars {
+  position: absolute;
+  right: 24px;
+  bottom: 24px;
+  z-index: 2;
+  display: flex;
+  align-items: flex-end;
+  gap: 7px;
+  height: 92px;
+}
+
+.experience-visual-bars i {
+  display: block;
+  width: 13px;
+  border-radius: 6px 6px 0 0;
+  background: var(--cyan);
+}
+
+.experience-visual-bars i:nth-child(1) { height: 31%; }
+.experience-visual-bars i:nth-child(2) { height: 48%; }
+.experience-visual-bars i:nth-child(3) { height: 64%; }
+.experience-visual-bars i:nth-child(4) { height: 82%; }
+.experience-visual-bars i:nth-child(5) { height: 100%; }
+
+.experience-card-body {
+  padding: 25px 25px 27px;
+}
+
+.experience-card-meta {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  color: var(--orange);
+  font: 650 15px/1 var(--mono);
+}
+
+.experience-card-meta b {
+  color: var(--muted);
+  font-weight: 650;
+}
+
+.experience-card h3 {
+  margin: 24px 0 6px;
+  font-size: clamp(38px, 3vw, 52px);
+  line-height: .95;
+  letter-spacing: -.035em;
+}
+
+.experience-card h4 {
+  margin: 0;
+  color: var(--orange);
+  font-size: 16px;
+  line-height: 1.4;
+}
+
+.experience-card p {
+  margin: 18px 0 0;
+  color: #59534a;
+  font-size: 16px;
+  line-height: 1.68;
+}
+
+.experience-card ul {
+  display: grid;
+  gap: 10px;
+  margin: 18px 0 0;
+  padding: 18px 0 0 20px;
+  border-top: 1px solid rgba(36, 33, 29, .12);
+}
+
+.experience-card li {
+  padding-left: 4px;
+  color: #4f4a42;
+  font-size: 15px;
+  line-height: 1.58;
+}
+
+.experience-card li::marker { color: var(--orange); }
+
+.experience-card footer {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: 20px;
+}
+
+.experience-card footer span {
+  padding: 8px 10px;
+  border-radius: 999px;
+  color: #5c554c;
+  background: var(--paper-2);
+  font-size: 15px;
+  line-height: 1;
+}
+
+.contact {
+  grid-template-columns: minmax(500px, .88fr) minmax(580px, 1.12fr);
+  min-height: clamp(780px, 92dvh, 920px);
+  padding-top: 96px;
+  padding-bottom: 70px;
+}
+
+.contact-title {
+  margin: 30px 0 26px;
+  font-size: clamp(76px, 6.8vw, 118px);
+  letter-spacing: -.04em;
+}
+
+.contact-copy > p {
+  max-width: 620px;
+  color: #59534a;
+  font-size: 17px;
+  line-height: 1.72;
+}
+
+.contact-facts {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  max-width: 680px;
+  margin-top: 28px;
+  border-top: 1px solid rgba(36, 33, 29, .15);
+  border-bottom: 1px solid rgba(36, 33, 29, .15);
+}
+
+.contact-facts > div {
+  min-width: 0;
+  padding: 17px 16px 17px 0;
+}
+
+.contact-facts > div + div {
+  padding-left: 16px;
+  border-left: 1px solid rgba(36, 33, 29, .12);
+}
+
+.contact-facts span,
+.contact-facts strong {
+  display: block;
+}
+
+.contact-facts span {
+  color: var(--muted);
+  font: 600 15px/1.2 var(--mono);
+}
+
+.contact-facts strong {
+  margin-top: 8px;
+  font-size: 17px;
+  line-height: 1.3;
+}
+
+.contact-actions { margin-top: 28px; }
+.email-button,
+.copy-email { font-size: 15px; }
+
+.contact-scene {
+  width: min(53vw, 900px);
+  min-width: 560px;
+  height: min(72vh, 680px);
+  transform: none;
+}
+
+.contact-reel-caption {
+  position: absolute;
+  top: 7%;
+  left: 3%;
+  z-index: 6;
+  display: grid;
+  gap: 8px;
+  padding: 14px 16px;
+  border: 1px solid rgba(36, 33, 29, .12);
+  border-radius: 14px;
+  background: rgba(255, 255, 255, .72);
+  box-shadow: 0 18px 42px rgba(68, 46, 24, .1);
+}
+
+.contact-reel-caption span {
+  color: var(--muted);
+  font: 650 15px/1.2 var(--mono);
+}
+
+.contact-reel-caption strong {
+  font: 750 16px/1.25 var(--sans);
+}
+
+.contact-avatar {
+  bottom: 62px;
+  width: 220px;
+  height: 410px;
+}
+
+.contact-head {
+  left: 53px;
+  width: 115px;
+  height: 126px;
+}
+
+.contact-head span {
+  width: 126px;
+  height: 72px;
+}
+
+.contact-body {
+  top: 116px;
+  left: 29px;
+  width: 163px;
+  height: 164px;
+  border-radius: 42px 42px 22px 22px;
+}
+
+.contact-arm {
+  top: 138px;
+  z-index: 5;
+  width: 48px;
+  height: 112px;
+}
+
+.contact-arm.left {
+  left: 23px;
+  transform: rotate(-61deg);
+}
+
+.contact-arm.right {
+  right: 21px;
+  z-index: 4;
+  transform: rotate(61deg);
+}
+
+.contact-arm::after {
+  width: 36px;
+  height: 38px;
+}
+
+.contact-leg {
+  top: 264px;
+  width: 64px;
+  height: 122px;
+}
+
+.contact-leg.left { left: 35px; }
+.contact-leg.right { right: 33px; }
+
+.package-one { left: 0; bottom: 70px; }
+.package-two { right: 0; bottom: 60px; }
+.package-three { right: 7%; bottom: 238px; }
+.paper-plane { top: 65px; right: 6%; }
+
+.site-footer { font-size: 15px; }
+
+@media (min-width: 901px) and (max-height: 780px) {
+  .hero { min-height: 760px; }
+  .hero-title { font-size: clamp(70px, 7.3vw, 106px); }
+  .hero-proof-strip { margin-top: 22px; }
+  .hero-proof-strip article { padding-block: 13px; }
+  .about-console { height: 500px; }
+  .profile-state { padding-block: 14px; }
+  .about-detail { margin-block: 18px; line-height: 1.58; }
+  .about-proof-row > div { padding-block: 12px; }
+  .experience-card-visual { min-height: 190px; }
+  .contact { min-height: 760px; }
+  .contact-scene { height: 500px; transform: none; }
+}
+
+@media (max-width: 1100px) {
+  .hero {
+    grid-template-columns: minmax(0, .86fr) minmax(0, 1.14fr);
+  }
+  .hero-bottom { grid-template-columns: 1fr; gap: 14px; }
+  .hero-bottom .round-arrow { display: none; }
+  .hero-scene { width: min(50vw, 680px); min-width: 0; }
+  .scene-reel-badge { width: min(210px, 42%); }
+  .hero-proof-strip { grid-template-columns: 1fr; }
+  .hero-proof-strip article {
+    grid-template-columns: 60px minmax(0, 1fr);
+    padding: 11px 0;
+  }
+  .hero-proof-strip article + article {
+    padding-left: 0;
+    border-top: 1px solid rgba(36, 33, 29, .12);
+    border-left: 0;
+  }
+  .hero-proof-strip span { font-size: 15px; }
+  .about-grid { grid-template-columns: minmax(340px, .82fr) minmax(460px, 1.18fr); }
+  .about-proof-row { grid-template-columns: 1fr; }
+  .about-proof-row > div,
+  .about-proof-row > div + div { padding: 13px 0; border-left: 0; }
+  .about-proof-row > div + div { border-top: 1px solid rgba(255, 255, 255, .12); }
+  .experience-heading { grid-template-columns: 1fr 1.35fr; }
+  .contact { grid-template-columns: minmax(0, .86fr) minmax(0, 1.14fr); }
+  .contact-scene { width: min(50vw, 620px); min-width: 0; }
+}
+
+@media (max-width: 900px) {
+  .hero {
+    grid-template-columns: 1fr;
+    min-height: auto;
+    padding-top: 112px;
+    padding-bottom: 72px;
+  }
+  .hero-copy { transform: none; }
+  .hero-title { font-size: clamp(72px, 13vw, 112px); }
+  .hero-bottom { grid-template-columns: max-content minmax(0, 1fr) 64px; }
+  .hero-bottom .round-arrow { display: grid; }
+  .hero-proof-strip { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+  .hero-proof-strip article {
+    grid-template-columns: auto minmax(0, 1fr);
+    padding: 17px 18px 17px 0;
+    border-top: 0;
+  }
+  .hero-proof-strip article + article {
+    padding-left: 18px;
+    border-left: 1px solid rgba(36, 33, 29, .12);
+  }
+  .hero-scene { width: min(98vw, 820px); min-width: 0; margin-top: 30px; }
+  .scene-reel-badge { right: 4%; width: min(235px, 34%); }
+
+  .about { padding-top: 82px; }
+  .about-grid { grid-template-columns: 1fr; gap: 36px; }
+  .about-console { position: relative; top: auto; width: min(100%, 680px); height: 520px; }
+  .about-copy { width: min(100%, 760px); }
+  .about-proof-row { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+  .about-proof-row > div,
+  .about-proof-row > div + div { padding: 15px 14px 15px 0; border-top: 0; }
+  .about-proof-row > div + div { padding-left: 14px; border-left: 1px solid rgba(255, 255, 255, .14); }
+
+  .principles.experience { padding-block: 72px; }
+  .experience-heading { grid-template-columns: 1fr; gap: 30px; padding-bottom: 34px; }
+  .experience-heading-main { align-items: end; }
+  .experience-heading h2 { font-size: clamp(55px, 9vw, 82px); }
+  .experience-card { flex-basis: min(70vw, 500px); }
+
+  .contact {
+    grid-template-columns: 1fr;
+    min-height: auto;
+    padding-top: 84px;
+  }
+  .contact-copy { width: min(100%, 760px); }
+  .contact-scene { width: min(94vw, 720px); min-width: 0; height: 580px; margin-top: 28px; transform: none; }
+}
+
+@media (max-width: 600px) {
+  body { font-size: 16px; }
+  .brand small { display: none; }
+  .hero { padding-top: 92px; padding-bottom: 58px; }
+  .eyebrow { font-size: 15px; }
+  .hero-title { margin-block: 22px; font-size: clamp(62px, 17vw, 72px); }
+  .hero-bottom { grid-template-columns: minmax(0, 1fr) 58px; gap: 15px; }
+  .role-sticker { grid-column: 1 / -1; width: fit-content; }
+  .hero-bottom p { font-size: 16px; }
+  .round-arrow { width: 58px; height: 58px; }
+  .hero-proof-strip { margin-top: 26px; }
+  .hero-proof-strip article,
+  .hero-proof-strip article + article { display: block; padding: 13px 9px; }
+  .hero-proof-strip article:first-child { padding-left: 0; }
+  .hero-proof-strip strong { display: block; font-size: 21px; }
+  .hero-proof-strip span { display: block; margin-top: 6px; font-size: 15px; }
+  .hero-scene { width: 108vw; margin-inline: calc(50% - 54vw); }
+  .scene-reel-badge { top: 1%; right: 5%; width: 190px; padding: 11px 12px; }
+  .scene-reel-badge > strong { font-size: 23px; }
+  .scene-reel-badge > small { font-size: 15px; }
+  .scene-reel-meta { font-size: 15px; }
+
+  .about { padding-top: 76px; }
+  .about-console { height: 470px; }
+  .console-topbar,
+  .console-data { font-size: 15px; }
+  .big-copy { font-size: 38px; }
+  .profile-state { margin-top: 20px; padding: 16px; }
+  .profile-state > p,
+  .about-detail { font-size: 16px; }
+  .about-proof-row { grid-template-columns: 1fr; }
+  .about-proof-row > div,
+  .about-proof-row > div + div { padding: 13px 0; border-left: 0; }
+  .about-proof-row > div + div { border-top: 1px solid rgba(255,255,255,.13); }
+  .capability-list > div { grid-template-columns: 34px minmax(0, 1fr); padding: 14px 10px; }
+  .capability-list small { grid-column: 2; }
+  .capability-list > div.is-active { transform: translateX(4px); }
+  .education-strip article { padding: 20px; }
+
+  .principles.experience { padding-block: 66px; }
+  .experience-heading { padding-inline: var(--page-gutter); }
+  .experience-heading-copy > p { margin-top: 22px; font-size: 16px; }
+  .experience-heading-main { grid-template-columns: 1fr; }
+  .experience-heading h2 { font-size: 50px; }
+  .experience-controls { justify-self: end; }
+  .experience-controls button { width: 48px; height: 48px; }
+  .experience-track { gap: 14px; padding-inline: var(--page-gutter); }
+  .experience-card { flex-basis: min(84vw, 390px); }
+  .experience-card-visual { min-height: 190px; }
+  .experience-card-body { padding: 22px; }
+  .experience-card h3 { font-size: 40px; }
+  .experience-card p { font-size: 16px; }
+
+  .contact { padding-top: 76px; padding-bottom: 46px; }
+  .contact-title { margin-block: 24px 20px; font-size: clamp(62px, 17vw, 74px); }
+  .contact-copy > p { font-size: 16px; }
+  .contact-facts { margin-top: 24px; }
+  .contact-facts > div,
+  .contact-facts > div + div { padding: 14px 8px; }
+  .contact-facts > div:first-child { padding-left: 0; }
+  .contact-facts span { font-size: 15px; }
+  .contact-facts strong { font-size: 16px; }
+  .email-button { padding-inline: 18px; }
+  .contact-scene { width: 116vw; height: 470px; margin: 20px calc(50% - 58vw) -44px; transform: scale(.86); transform-origin: center top; }
+  .contact-reel-caption { top: 4%; left: 9%; }
+  .site-footer { font-size: 15px; }
+}
+
 @media (prefers-reduced-motion: reduce) {
   html { scroll-behavior:auto; }
   *,*::before,*::after { animation-duration:.01ms !important; animation-iteration-count:1 !important; transition-duration:.01ms !important; }
@@ -2449,6 +3379,12 @@ small,
                 <path d="M6 16h19M18 9l7 7-7 7" />
               </svg>
             </a>
+          </div>
+
+          <div class="hero-proof-strip reveal" aria-label="个人经历摘要">
+            <article><strong>03</strong><span>头部平台实习</span></article>
+            <article><strong>04</strong><span>完整项目案例</span></article>
+            <article><strong>0→1</strong><span>洞察到验证闭环</span></article>
           </div>
         </div>
 
@@ -2610,6 +3546,12 @@ small,
           <div class="scene-chip chip-live" data-depth="0.55">
             <i></i> GUANGZHOU / SHENZHEN
           </div>
+          <div class="scene-reel-badge" aria-hidden="true">
+            <div class="scene-reel-meta"><span><i></i> WORK REEL</span><b data-hero-reel-index>01 / 03</b></div>
+            <strong data-hero-reel-title>DISCOVER</strong>
+            <small data-hero-reel-caption>从真实用户问题开始</small>
+            <div class="scene-reel-progress"><i data-hero-reel-progress></i></div>
+          </div>
         </div>
 
         <a class="scroll-cue" href="#about" aria-label="向下滚动">
@@ -2653,16 +3595,33 @@ small,
               我在用户、数据与业务之间工作，<br />
               把复杂问题变成<strong>可验证的增长路径。</strong>
             </p>
+
+            <div class="profile-state reveal" aria-live="polite">
+              <div class="profile-state-heading">
+                <span><i></i> CURRENT WORK MODE</span>
+                <b data-profile-state-index>01 / 03</b>
+              </div>
+              <strong data-profile-state-title>USER INSIGHT</strong>
+              <p data-profile-state-caption>把模糊反馈还原成可验证的问题定义。</p>
+              <div class="profile-state-progress"><i data-profile-state-progress></i></div>
+            </div>
+
             <p class="about-detail reveal">
               我本科就读于广东工业大学数字经济学专业，以专业第 3/75 推免至暨南大学。
               在快手、唯品会与欢聚时代的实践中，我持续参与商业化、用户增长和 AI 产品建设，
               从用户洞察、策略设计到 PRD、协同上线和 A/B Test 验证完整推进项目。
             </p>
 
+            <div class="about-proof-row reveal" aria-label="能力证据">
+              <div><span>业务场景</span><strong>增长 · 商业化 · AI</strong></div>
+              <div><span>工作链路</span><strong>洞察 → 方案 → 上线 → 验证</strong></div>
+              <div><span>数据能力</span><strong>SQL · 漏斗 · A/B Test</strong></div>
+            </div>
+
             <div class="capability-list reveal">
-              <div><span>01</span><strong>User Insight & Strategy</strong><small>用户洞察与策略设计</small></div>
-              <div><span>02</span><strong>Product Design & Delivery</strong><small>PRD、协同与产品落地</small></div>
-              <div><span>03</span><strong>Data & Growth Experiment</strong><small>数据分析与增长实验</small></div>
+              <div class="is-active" data-profile-step="0"><span>01</span><strong>User Insight & Strategy</strong><small>用户洞察与策略设计</small></div>
+              <div data-profile-step="1"><span>02</span><strong>Product Design & Delivery</strong><small>PRD、协同与产品落地</small></div>
+              <div data-profile-step="2"><span>03</span><strong>Data & Growth Experiment</strong><small>数据分析与增长实验</small></div>
             </div>
           </div>
         </div>
@@ -2782,39 +3741,96 @@ small,
         </div>
       </section>
 
-      <section class="principles experience" aria-label="实习经历">
+      <section class="principles experience" id="experience" aria-label="实习经历">
         <div class="experience-heading reveal">
-          <div class="section-kicker"><span>03</span> EXPERIENCE / 实习经历</div>
-          <h2>Three teams.<br /><em>One product mindset.</em></h2>
+          <div class="experience-heading-copy">
+            <div class="section-kicker"><span>03</span> EXPERIENCE / 实习经历</div>
+            <p>三段经历分别训练了商业化产品、用户增长与数据运营能力，也共同形成了以问题定义、产品落地和结果验证为核心的工作方法。</p>
+          </div>
+          <div class="experience-heading-main">
+            <h2>Three teams.<br /><em>One product mindset.</em></h2>
+            <div class="experience-controls" aria-label="实习经历卡片控制">
+              <button type="button" data-experience-prev aria-label="查看上一段经历" disabled>
+                <svg viewBox="0 0 24 24" aria-hidden="true"><path d="m15 5-7 7 7 7M8 12h11" /></svg>
+              </button>
+              <button type="button" data-experience-next aria-label="查看下一段经历">
+                <svg viewBox="0 0 24 24" aria-hidden="true"><path d="m9 5 7 7-7 7M16 12H5" /></svg>
+              </button>
+            </div>
+          </div>
         </div>
-        <div class="principle-card reveal">
-          <span>2026.03 - 2026.08</span>
-          <div class="principle-icon"><i></i><i></i><i></i></div>
-          <h3>快手</h3>
-          <small>商业化产品经理 · 快影</small>
-          <p>负责国内外商业化与用户增长产品建设，覆盖云空间付费转化、Kwai 生态导流与 AI IAP 变现规划。</p>
-        </div>
-        <div class="principle-card reveal">
-          <span>2025.09 - 2026.03</span>
-          <div class="principle-icon icon-loop"><i></i><i></i></div>
-          <h3>唯品会</h3>
-          <small>用户产品实习生 · 外呼策略</small>
-          <p>围绕流失老客召回建设用户增长引擎，负责个性化主题匹配、A/B 实验及挂机短信 ROI 策略。</p>
-        </div>
-        <div class="principle-card reveal">
-          <span>2024.04 - 2024.08</span>
-          <div class="principle-icon icon-code"><b>&lt;/&gt;</b></div>
-          <h3>欢聚时代</h3>
-          <small>渠道运营实习生</small>
-          <p>基于 SQL 看板跟踪 CPA、ROI、ARPPU 与转化漏斗，结合内容节点与用户退出行为输出投放调优方案。</p>
+
+        <div class="experience-track" data-experience-track>
+          <article class="experience-card reveal">
+            <div class="experience-card-visual experience-visual-kuaishou" aria-hidden="true">
+              <span class="experience-visual-label">COMMERCIALIZATION / GROWTH</span>
+              <strong>12.37%</strong>
+              <div class="experience-visual-pills"><i>7.18M</i><i>AI IAP</i><i>CLOUD</i></div>
+            </div>
+            <div class="experience-card-body">
+              <div class="experience-card-meta"><span>2026.03 - 2026.08</span><b>01</b></div>
+              <h3>快手</h3>
+              <h4>商业化产品经理 · 快影</h4>
+              <p>负责国内外商业化与用户增长产品建设，把用户阻力转化为可落地、可验证的产品机会。</p>
+              <ul>
+                <li>推动云空间两期升级，上传率由 1.69% 提升至 12.37%。</li>
+                <li>参与 Kwai 生态导流与 AI Credits IAP MVP 规划。</li>
+              </ul>
+              <footer><span>用户增长</span><span>商业化</span><span>AI 产品</span></footer>
+            </div>
+          </article>
+
+          <article class="experience-card reveal">
+            <div class="experience-card-visual experience-visual-vip" aria-hidden="true">
+              <span class="experience-visual-label">USER GROWTH / CRM</span>
+              <strong>60%</strong>
+              <div class="experience-visual-pills"><i>14M USERS</i><i>+80K</i><i>ROI</i></div>
+            </div>
+            <div class="experience-card-body">
+              <div class="experience-card-meta"><span>2025.09 - 2026.03</span><b>02</b></div>
+              <h3>唯品会</h3>
+              <h4>用户产品实习生 · 外呼策略</h4>
+              <p>围绕流失老客召回建设增长引擎，串联用户分层、触达策略、实验验证和效果监控。</p>
+              <ul>
+                <li>负责个性化主题匹配、A/B 实验与挂机短信策略。</li>
+                <li>策略覆盖 1400 万用户，实现 60% 回访率和季度 8 万增量客户。</li>
+              </ul>
+              <footer><span>用户分层</span><span>A/B Test</span><span>召回策略</span></footer>
+            </div>
+          </article>
+
+          <article class="experience-card reveal">
+            <div class="experience-card-visual experience-visual-yy" aria-hidden="true">
+              <span class="experience-visual-label">DATA OPERATION / CHANNEL</span>
+              <strong>ROI</strong>
+              <div class="experience-visual-bars"><i></i><i></i><i></i><i></i><i></i></div>
+              <div class="experience-visual-pills"><i>CPA</i><i>ARPPU</i><i>SQL</i></div>
+            </div>
+            <div class="experience-card-body">
+              <div class="experience-card-meta"><span>2024.04 - 2024.08</span><b>03</b></div>
+              <h3>欢聚时代</h3>
+              <h4>渠道运营实习生</h4>
+              <p>用数据看板拆解渠道效率与转化漏斗，形成从异常定位到投放调优的分析闭环。</p>
+              <ul>
+                <li>基于 SQL 看板持续跟踪 CPA、ROI、ARPPU 等指标。</li>
+                <li>结合内容节点与退出行为输出渠道投放优化方案。</li>
+              </ul>
+              <footer><span>SQL 看板</span><span>漏斗分析</span><span>渠道优化</span></footer>
+            </div>
+          </article>
         </div>
       </section>
 
       <section class="contact section-light" id="contact" data-section-name="contact">
         <div class="contact-copy">
           <div class="section-kicker reveal"><span>04</span> CONTACT / 联系我</div>
-          <h2 class="contact-title reveal">Let’s turn<br /><em>insight into growth.</em></h2>
-          <p class="reveal">求职方向：产品经理。可立刻到岗并连续实习 6 个月，期待商业化、用户增长与 AI 产品机会。</p>
+          <h2 class="contact-title reveal">Let’s work<br /><em>together!</em></h2>
+          <p class="reveal">希望和团队一起把洞察、数据与业务目标落成真实产品。求职方向为产品经理，期待商业化、用户增长与 AI 产品机会。</p>
+          <div class="contact-facts reveal" aria-label="求职信息">
+            <div><span>到岗时间</span><strong>立即到岗</strong></div>
+            <div><span>实习周期</span><strong>连续 6 个月+</strong></div>
+            <div><span>工作地点</span><strong>广州 / 深圳</strong></div>
+          </div>
           <div class="contact-actions reveal">
             <a class="email-button magnetic" href="mailto:rickyyyi@163.com">
               <span>RICKYYYI@163.COM</span>
@@ -2825,6 +3841,7 @@ small,
         </div>
 
         <div class="contact-scene reveal" aria-hidden="true">
+          <div class="contact-reel-caption"><span><i></i> READY TO BUILD</span><strong>INSIGHT → PRODUCT → GROWTH</strong></div>
           <div class="package package-one"><span>INSIGHT</span></div>
           <div class="package package-two"><span>LET’S<br />GROW</span></div>
           <div class="package package-three"><span>PRODUCT<br />VALUE</span></div>
@@ -3474,6 +4491,144 @@ if (heroScene && !reducedMotion && window.matchMedia('(pointer: fine)').matches)
   heroScene.addEventListener('pointerleave', () => {
     parallaxLayers.forEach((layer) => (layer.style.transform = ''));
   });
+}
+
+// Cinematic work reels: the first two screens move through discover, build and validate states.
+const heroReelStates = [
+  { title: 'DISCOVER', caption: '从真实用户问题开始', person: { x: 0, y: 0, rotation: 0 }, screen: { x: -3, y: 0, rotation: -0.4 } },
+  { title: 'SHAPE', caption: '把洞察组织成产品方案', person: { x: 5, y: -4, rotation: 1.4 }, screen: { x: 3, y: -2, rotation: 0.5 } },
+  { title: 'VALIDATE', caption: '用数据判断下一步增长', person: { x: -2, y: 2, rotation: -0.8 }, screen: { x: 0, y: 2, rotation: 0 } },
+];
+
+const heroReelTitle = qs('[data-hero-reel-title]');
+const heroReelCaption = qs('[data-hero-reel-caption]');
+const heroReelIndex = qs('[data-hero-reel-index]');
+const heroReelProgress = qs('[data-hero-reel-progress]');
+const heroPerson = qs('.person', heroScene);
+const heroWorkstation = qs('.scene-layer[data-depth="0.34"]', heroScene);
+const heroBoard = qs('.scene-layer[data-depth="0.18"]', heroScene);
+
+function setHeroReelState(index) {
+  const reelState = heroReelStates[index];
+  if (!reelState) return;
+  if (heroReelTitle) heroReelTitle.textContent = reelState.title;
+  if (heroReelCaption) heroReelCaption.textContent = reelState.caption;
+  if (heroReelIndex) heroReelIndex.textContent = `${String(index + 1).padStart(2, '0')} / 03`;
+}
+
+const profileReelStates = [
+  { title: 'USER INSIGHT', caption: '把模糊反馈还原成可验证的问题定义。', x: -4, rotation: -2 },
+  { title: 'PRODUCT DELIVERY', caption: '把策略写进 PRD，并推动协同上线。', x: 4, rotation: 2 },
+  { title: 'GROWTH VALIDATION', caption: '用漏斗、SQL 与 A/B Test 验证结果。', x: 0, rotation: 0 },
+];
+
+const profileStateTitle = qs('[data-profile-state-title]');
+const profileStateCaption = qs('[data-profile-state-caption]');
+const profileStateIndex = qs('[data-profile-state-index]');
+const profileStateProgress = qs('[data-profile-state-progress]');
+const profileRows = qsa('[data-profile-step]');
+const profileAvatar = qs('.avatar-head');
+const profileOrbits = qsa('.orbit');
+
+function setProfileReelState(index) {
+  const reelState = profileReelStates[index];
+  if (!reelState) return;
+  if (profileStateTitle) profileStateTitle.textContent = reelState.title;
+  if (profileStateCaption) profileStateCaption.textContent = reelState.caption;
+  if (profileStateIndex) profileStateIndex.textContent = `${String(index + 1).padStart(2, '0')} / 03`;
+  profileRows.forEach((row, rowIndex) => row.classList.toggle('is-active', rowIndex === index));
+}
+
+function observeTimeline(section, timeline) {
+  if (!section || !timeline || typeof IntersectionObserver !== 'function') return;
+  const observer = new IntersectionObserver(
+    ([entry]) => {
+      if (entry.isIntersecting) timeline.play();
+      else timeline.pause();
+    },
+    { threshold: 0.22 }
+  );
+  observer.observe(section);
+}
+
+if (gsapEngine && !reducedMotion) {
+  if (heroScene && heroReelProgress && heroPerson && heroWorkstation) {
+    const heroReelTimeline = gsapEngine.timeline({ repeat: -1, paused: true });
+
+    heroReelStates.forEach((reelState, index) => {
+      heroReelTimeline
+        .call(() => setHeroReelState(index))
+        .set(heroReelProgress, { scaleX: 0 })
+        .to(heroReelProgress, { scaleX: 1, duration: 2.55, ease: 'none' })
+        .to(heroPerson, { ...reelState.person, duration: 0.9, ease: 'power3.out' }, '<')
+        .to(heroWorkstation, { ...reelState.screen, duration: 0.95, ease: 'power3.out' }, '<')
+        .to(heroBoard, { y: index === 1 ? -4 : 0, rotation: index === 2 ? 0.6 : 0, duration: 0.9, ease: 'power3.out' }, '<');
+    });
+
+    observeTimeline(qs('#home'), heroReelTimeline);
+  }
+
+  if (profileStateProgress && profileAvatar && profileRows.length) {
+    const profileReelTimeline = gsapEngine.timeline({ repeat: -1, paused: true });
+
+    profileReelStates.forEach((reelState, index) => {
+      profileReelTimeline
+        .call(() => setProfileReelState(index))
+        .set(profileStateProgress, { scaleX: 0 })
+        .to(profileStateProgress, { scaleX: 1, duration: 2.45, ease: 'none' })
+        .to(profileAvatar, { x: reelState.x, rotation: reelState.rotation, duration: 0.8, ease: 'power3.out' }, '<')
+        .to(profileOrbits, { scale: index === 1 ? 1.05 : 1, stagger: 0.04, duration: 0.8, ease: 'power2.out' }, '<');
+    });
+
+    observeTimeline(qs('#about'), profileReelTimeline);
+  }
+} else {
+  if (heroReelProgress) heroReelProgress.style.transform = 'scaleX(1)';
+  if (profileStateProgress) profileStateProgress.style.transform = 'scaleX(1)';
+}
+
+// Experience deck controls mirror the large editorial cards while preserving DOM order.
+const experienceTrack = qs('[data-experience-track]');
+const experiencePrev = qs('[data-experience-prev]');
+const experienceNext = qs('[data-experience-next]');
+
+function updateExperienceControls() {
+  if (!experienceTrack || !experiencePrev || !experienceNext) return;
+  const firstCard = experienceTrack.querySelector('.experience-card');
+  const trackRect = experienceTrack.getBoundingClientRect();
+  const firstCardRect = firstCard?.getBoundingClientRect();
+  const maxScroll = Math.max(0, experienceTrack.scrollWidth - experienceTrack.clientWidth);
+  experiencePrev.disabled = firstCardRect
+    ? firstCardRect.left >= trackRect.left - 4
+    : experienceTrack.scrollLeft <= 4;
+  experienceNext.disabled = experienceTrack.scrollLeft >= maxScroll - 4 || maxScroll === 0;
+}
+
+function moveExperienceDeck(direction) {
+  if (!experienceTrack) return;
+  experienceTrack.scrollBy({
+    left: direction * Math.max(320, experienceTrack.clientWidth * 0.78),
+    behavior: reducedMotion ? 'auto' : 'smooth',
+  });
+  window.setTimeout(updateExperienceControls, reducedMotion ? 0 : 520);
+}
+
+experiencePrev?.addEventListener('click', () => moveExperienceDeck(-1));
+experienceNext?.addEventListener('click', () => moveExperienceDeck(1));
+experienceTrack?.addEventListener('scroll', updateExperienceControls, { passive: true });
+experienceTrack?.addEventListener('scrollend', updateExperienceControls, { passive: true });
+window.addEventListener('resize', updateExperienceControls);
+window.setTimeout(updateExperienceControls, 0);
+
+// The final character keeps the arms-crossed reference pose and adds a restrained idle loop.
+const contactAvatar = qs('.contact-avatar');
+const contactPackages = qsa('.package', qs('.contact-scene'));
+if (gsapEngine && !reducedMotion && contactAvatar) {
+  const contactIdleTimeline = gsapEngine.timeline({ repeat: -1, yoyo: true, paused: true });
+  contactIdleTimeline
+    .to(contactAvatar, { y: -8, rotation: 0.5, duration: 2.4, ease: 'sine.inOut' })
+    .to(contactPackages, { y: (index) => index % 2 ? -5 : 3, rotation: (index) => index - 1, duration: 2.4, ease: 'sine.inOut', stagger: 0.08 }, '<');
+  observeTimeline(qs('#contact'), contactIdleTimeline);
 }
 
 // Bento project directory. Motion communicates hierarchy and click affordance.
