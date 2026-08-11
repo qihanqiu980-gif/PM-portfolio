@@ -106,6 +106,140 @@
       ::selection { color: var(--surface); background: var(--accent); }
       :focus-visible { outline: 3px solid var(--accent); outline-offset: 3px; }
 
+      .cursor-trail-layer {
+        --trail-blue: #0a3180;
+        --trail-orange: #ff8200;
+        --trail-cyan: #1dd7ff;
+        --trail-ink: #24211d;
+        position: fixed;
+        z-index: 40;
+        inset: 0;
+        overflow: hidden;
+        pointer-events: none;
+        contain: strict;
+      }
+      .trail-flair {
+        position: absolute;
+        top: 0;
+        left: 0;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        visibility: hidden;
+        font-family: ui-monospace, "SFMono-Regular", Menlo, Consolas, monospace;
+        user-select: none;
+        will-change: transform, opacity;
+      }
+      .trail-pill {
+        min-height: 38px;
+        padding: 10px 14px;
+        border: 1px solid rgba(36, 33, 29, 0.16);
+        font-size: 9px;
+        font-weight: 600;
+        letter-spacing: 0.08em;
+        white-space: nowrap;
+        box-shadow: 6px 6px 0 rgba(36, 33, 29, 0.13);
+      }
+      .trail-blue { color: #fff; background: var(--trail-blue); }
+      .trail-orange { color: #fff; background: var(--trail-orange); }
+      .trail-metric {
+        min-width: 82px;
+        min-height: 65px;
+        flex-direction: column;
+        align-items: flex-start;
+        padding: 10px 12px;
+        border: 1px solid rgba(36, 33, 29, 0.18);
+        border-radius: 13px;
+        box-shadow: 0 13px 28px rgba(67, 44, 20, 0.2);
+      }
+      .trail-metric strong {
+        font-family: var(--sans);
+        font-size: 20px;
+        font-weight: 800;
+        line-height: 1;
+        letter-spacing: -0.07em;
+      }
+      .trail-metric small { margin-top: 7px; font-size: 7px; letter-spacing: 0.08em; opacity: 0.68; }
+      .trail-dark { color: #fff; background: var(--trail-ink); }
+      .trail-ivory { color: var(--trail-ink); background: #fffaf0; }
+      .trail-pink { color: #181818; background: #ffa3be; }
+      .trail-node {
+        width: 48px;
+        height: 48px;
+        border: 2px solid var(--trail-blue);
+        border-radius: 50%;
+        color: var(--trail-blue);
+        background: #fffaf0;
+        box-shadow: 0 11px 25px rgba(40, 57, 92, 0.18);
+        font-size: 10px;
+        font-weight: 700;
+      }
+      .trail-node-fill { border-color: var(--trail-orange); color: #fff; background: var(--trail-orange); }
+      .trail-ai {
+        width: 62px;
+        height: 62px;
+        flex-direction: column;
+        align-items: flex-start;
+        border-radius: 17px 17px 17px 4px;
+        color: #fff;
+        background: linear-gradient(145deg, var(--trail-blue), #1760c4);
+        box-shadow: 0 15px 32px rgba(10, 49, 128, 0.3);
+      }
+      .trail-ai strong { margin-left: 13px; font-family: var(--sans); font-size: 21px; line-height: 1; }
+      .trail-ai small { margin: 6px 0 0 13px; font-size: 7px; letter-spacing: 0.08em; opacity: 0.72; }
+      .trail-stamp {
+        width: 61px;
+        height: 61px;
+        flex-direction: column;
+        border: 2px solid var(--trail-ink);
+        border-radius: 50%;
+        color: var(--trail-ink);
+        background: #fffaf0;
+        box-shadow: 0 12px 26px rgba(67, 44, 20, 0.17);
+        font-size: 8px;
+        font-weight: 700;
+        line-height: 1.25;
+        text-align: center;
+      }
+      .trail-route { width: 96px; height: 47px; }
+      .trail-route svg { width: 100%; height: 100%; overflow: visible; }
+      .trail-route path { fill: none; stroke: var(--trail-orange); stroke-width: 2.5; }
+      .trail-route circle { fill: var(--trail-orange); }
+      .trail-orb {
+        width: 48px;
+        height: 48px;
+        border: 1px solid rgba(255, 255, 255, 0.7);
+        border-radius: 50%;
+        background: radial-gradient(circle at 30% 25%, #fff 0 5%, var(--trail-cyan) 22%, #1598d7 70%);
+        box-shadow: inset -8px -9px 13px rgba(10, 49, 128, 0.2), 0 13px 27px rgba(16, 125, 180, 0.25);
+      }
+      .trail-cube {
+        width: 51px;
+        height: 47px;
+        background: linear-gradient(145deg, #ffb027, var(--trail-orange) 58%, #d45a00);
+        box-shadow: inset -8px -9px 14px rgba(139, 56, 0, 0.2), 0 13px 28px rgba(191, 79, 0, 0.27);
+        clip-path: polygon(50% 0, 100% 23%, 91% 84%, 40% 100%, 0 67%, 8% 15%);
+      }
+      .trail-arch {
+        width: 54px;
+        height: 45px;
+        border: 11px solid var(--trail-blue);
+        border-bottom: 0;
+        border-radius: 40px 40px 0 0;
+        background: transparent;
+        filter: drop-shadow(0 12px 13px rgba(10, 49, 128, 0.22));
+      }
+      .trail-spark {
+        width: 51px;
+        height: 51px;
+        border-radius: 12px 50% 12px 50%;
+        color: #181818;
+        background: #ffa3be;
+        box-shadow: 0 13px 28px rgba(173, 76, 105, 0.24);
+        font-family: var(--sans);
+        font-size: 24px;
+      }
+
       .skip-link {
         position: fixed;
         top: 12px;
@@ -1120,11 +1254,13 @@
 
       @media (prefers-reduced-motion: reduce) {
         *, *::before, *::after { scroll-behavior: auto !important; animation-duration: 0.01ms !important; transition-duration: 0.01ms !important; }
+        .cursor-trail-layer { display: none; }
       }
     </style>
   </head>
   <body>
     <a class="skip-link" href="#overview">跳至项目内容</a>
+    <div class="cursor-trail-layer" data-cursor-trail aria-hidden="true"></div>
     <header class="case-header" aria-label="项目导航">
       <a class="brand-link" href="../index.html" aria-label="返回作品集主页">
         <span class="brand-mark">Q×H</span>
@@ -1235,6 +1371,125 @@
           });
         } else {
           reducedQuery.addEventListener?.("change", (event) => { reducedMotion = event.matches; });
+        }
+
+        if (gsapEngine && params.get("capture") !== "1") {
+          const trailMedia = gsapEngine.matchMedia();
+          trailMedia.add("(pointer: fine) and (min-width: 901px) and (prefers-reduced-motion: no-preference)", () => {
+            const trailLayer = document.querySelector("[data-cursor-trail]");
+            if (!trailLayer) return;
+
+            trailLayer.innerHTML = [
+              '<span class="trail-flair trail-pill trail-blue">USER INSIGHT</span>',
+              '<span class="trail-flair trail-pill trail-orange">PRODUCT STRATEGY</span>',
+              '<span class="trail-flair trail-metric trail-dark"><strong>12.37%</strong><small>UPLOAD RATE</small></span>',
+              '<span class="trail-flair trail-metric trail-ivory"><strong>7.18M</strong><small>CREATORS</small></span>',
+              '<span class="trail-flair trail-node">01</span>',
+              '<span class="trail-flair trail-node trail-node-fill">02</span>',
+              '<span class="trail-flair trail-ai"><strong>AI</strong><small>CREDITS ↗</small></span>',
+              '<span class="trail-flair trail-metric trail-pink"><strong>60%</strong><small>RETURN RATE</small></span>',
+              '<span class="trail-flair trail-stamp">¥820K<br />SAVED</span>',
+              '<span class="trail-flair trail-route"><svg viewBox="0 0 96 47" aria-hidden="true"><path d="M4 35h45c15 0 13-22 27-22h16"/><circle cx="4" cy="35" r="4"/><circle cx="92" cy="13" r="4"/></svg></span>',
+              '<span class="trail-flair trail-orb"></span>',
+              '<span class="trail-flair trail-cube"></span>',
+              '<span class="trail-flair trail-arch"></span>',
+              '<span class="trail-flair trail-spark">✦</span>'
+            ].join("");
+
+            const flair = gsapEngine.utils.toArray(".trail-flair", trailLayer);
+            const wrapIndex = gsapEngine.utils.wrap(0, flair.length);
+            const timelines = new WeakMap();
+            const pointer = { x: 0, y: 0 };
+            const smoothed = { x: 0, y: 0 };
+            const lastSpawn = { x: 0, y: 0 };
+            const gap = 90;
+            let pointerActive = false;
+            let flairIndex = 0;
+
+            gsapEngine.set(flair, {
+              autoAlpha: 0,
+              xPercent: -50,
+              yPercent: -50,
+              transformOrigin: "50% 50%",
+              force3D: true
+            });
+
+            const playTrailAnimation = (token, x, y) => {
+              timelines.get(token)?.kill();
+              const direction = Math.random() > 0.5 ? 1 : -1;
+              const spin = gsapEngine.utils.random(220, 380) * direction;
+              const drift = gsapEngine.utils.random(-58, 58);
+              const fall = gsapEngine.utils.random(innerHeight * 0.38, innerHeight * 0.68);
+              const restingScale = gsapEngine.utils.random(0.9, 1.08);
+
+              gsapEngine.set(token, { x, y, xPercent: -50, yPercent: -50, autoAlpha: 1, scale: restingScale, rotation: 0 });
+              const timeline = gsapEngine.timeline({
+                defaults: { overwrite: "auto" },
+                onComplete: () => {
+                  if (timelines.get(token) === timeline) gsapEngine.set(token, { autoAlpha: 0 });
+                }
+              });
+
+              timeline
+                .fromTo(token, { autoAlpha: 0, scale: 0, rotation: gsapEngine.utils.random(-18, 18) }, { autoAlpha: 1, scale: restingScale, rotation: 0, duration: 0.72, ease: "elastic.out(1, 0.3)" }, 0)
+                .to(token, { rotation: spin, duration: 1.12, ease: "power2.inOut" }, 0)
+                .to(token, { x: `+=${drift}`, y: `+=${fall}`, duration: 1.08, ease: "back.in(0.4)" }, 0)
+                .to(token, { autoAlpha: 0, scale: restingScale * 0.72, duration: 0.28, ease: "power2.in" }, 0.8);
+
+              timelines.set(token, timeline);
+            };
+
+            const animateNextFlair = (x, y) => {
+              const token = flair[wrapIndex(flairIndex)];
+              if (!token) return;
+              playTrailAnimation(token, x, y);
+              flairIndex += 1;
+            };
+
+            const updatePointer = (event) => {
+              pointer.x = event.clientX;
+              pointer.y = event.clientY;
+              if (!pointerActive) {
+                smoothed.x = pointer.x;
+                smoothed.y = pointer.y;
+                lastSpawn.x = pointer.x;
+                lastSpawn.y = pointer.y;
+                pointerActive = true;
+              }
+            };
+            const resetPointer = () => { pointerActive = false; };
+            const renderTrail = () => {
+              if (!pointerActive || document.hidden || dialog?.open) return;
+              smoothed.x = gsapEngine.utils.interpolate(smoothed.x, pointer.x, 0.34);
+              smoothed.y = gsapEngine.utils.interpolate(smoothed.y, pointer.y, 0.34);
+
+              const deltaX = smoothed.x - lastSpawn.x;
+              const deltaY = smoothed.y - lastSpawn.y;
+              const distance = Math.hypot(deltaX, deltaY);
+              if (distance < gap) return;
+
+              const spawnCount = Math.min(Math.floor(distance / gap), 3);
+              const stepX = (deltaX / distance) * gap;
+              const stepY = (deltaY / distance) * gap;
+              for (let step = 0; step < spawnCount; step += 1) {
+                lastSpawn.x += stepX;
+                lastSpawn.y += stepY;
+                animateNextFlair(lastSpawn.x, lastSpawn.y);
+              }
+            };
+
+            window.addEventListener("pointermove", updatePointer, { passive: true });
+            document.documentElement.addEventListener("pointerleave", resetPointer);
+            gsapEngine.ticker.add(renderTrail);
+
+            return () => {
+              window.removeEventListener("pointermove", updatePointer);
+              document.documentElement.removeEventListener("pointerleave", resetPointer);
+              gsapEngine.ticker.remove(renderTrail);
+              flair.forEach((token) => timelines.get(token)?.kill());
+              trailLayer.replaceChildren();
+            };
+          });
         }
 
         const realMedia = Object.freeze({
